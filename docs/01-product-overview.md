@@ -47,22 +47,21 @@ Berikut adalah contoh skenario alur kerja dari awal sampai akhir:
 ```mermaid
 sequenceDiagram
     autonumber
-    actor P as Pengawas
-    actor K as Kepala Sekolah
-    actor G as Guru
-    participant APP as Aplikasi Supervisi
-    participant AI as Modul AI
+    actor Pengawas
+    actor Kepsek as Kepala Sekolah
+    actor Guru
+    participant App as Aplikasi
+    participant AI Engine as AI
 
-    P->>APP: Login & Tambah Data Sekolah (Jika belum ada)
-    K->>APP: Login & Daftarkan Guru Sekolah
-    G->>APP: Input Public Link Google Drive
-    AI->>APP: Analisis Kelengkapan & Kualitas Dokumen
-    K->>APP: Review & Cross-check Perangkat (Human Verification)
-    K->>APP: Observasi Kelas & Input Scoring Instrumen + Catatan
-    APP->>APP: Kalkulasi Skor Otomatis (%)
-    AI->>APP: Synthesizer Observasi & Draf Tindak Lanjut
-    K->>APP: Finalisasi Rencana Tindak Lanjut
-    APP->>P: Generate & Download Laporan Supervisi (PDF)
+    Pengawas->>App: Tambah Sekolah Dampingan
+    Kepsek->>App: Daftarkan Guru Sekolah
+    Guru->>App: Input Link GDrive Publik
+    AI Engine->>App: Analisis Kelengkapan Perangkat
+    Kepsek->>App: Review & Verifikasi Perangkat
+    Kepsek->>App: Isi Observasi & Scoring Kelas
+    AI Engine->>App: Generate Draf Tindak Lanjut
+    Kepsek->>App: Finalisasi Tindak Lanjut
+    App->>Pengawas: Download Laporan Supervisi (PDF)
 ```
 
 ---

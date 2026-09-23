@@ -333,7 +333,7 @@
     }
 
     .markdown-body {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
       font-size: 1rem;
       line-height: 1.75;
@@ -453,23 +453,32 @@
       color: inherit;
     }
 
-    /* Mermaid Wrapper */
+    /* Mermaid Container Styling */
     .mermaid-wrapper {
-      background: #0f172a;
+      background: #0d1322;
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      padding: 2rem 1.5rem;
+      margin: 1.75rem 0;
+      width: 100%;
+      overflow-x: auto;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow-x: auto;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
-    .mermaid-wrapper svg {
+    .mermaid {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mermaid svg {
+      width: 100% !important;
+      height: auto !important;
+      min-width: 550px;
       max-width: 100%;
-      height: auto;
     }
 
     .markdown-body hr {
@@ -669,12 +678,24 @@
   </div>
 
   <script>
-    // Initialize Mermaid
+    // Initialize Mermaid with larger font and scaling
     mermaid.initialize({
       startOnLoad: false,
       theme: 'dark',
       securityLevel: 'loose',
-      fontFamily: 'Inter, sans-serif'
+      fontSize: 16,
+      fontFamily: 'Inter, sans-serif',
+      sequence: {
+        actorFontSize: 14,
+        noteFontSize: 13,
+        messageFontSize: 13,
+        boxTextFontSize: 14,
+        useMaxWidth: false
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true
+      }
     });
 
     const docsData = window.DOCS_DATA || {};
@@ -837,7 +858,8 @@
       document.getElementById('themeToggle').textContent = newTheme === 'light' ? '☀️' : '🌙';
       
       mermaid.initialize({
-        theme: newTheme === 'light' ? 'default' : 'dark'
+        theme: newTheme === 'light' ? 'default' : 'dark',
+        fontSize: 16
       });
       loadDocument(currentDocKey);
     };
