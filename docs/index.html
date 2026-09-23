@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistem Supervisi Guru — Dokumentasi Proyek</title>
+  <title>APSIKITA — Dokumentasi Spesifikasi & Workflow</title>
   
   <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,11 +111,12 @@
 
     .brand-text h1 {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: 0.02em;
     }
 
     .brand-text span {
@@ -224,7 +225,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.6rem 0.75rem;
+      padding: 0.65rem 0.75rem;
       border-radius: 8px;
       color: var(--text-muted);
       text-decoration: none;
@@ -596,16 +597,16 @@
   <!-- Header Bar -->
   <header class="header">
     <div class="brand">
-      <div class="brand-logo">S</div>
+      <div class="brand-logo">A</div>
       <div class="brand-text">
-        <h1>Supervisi Guru AI</h1>
-        <span>Dokumentasi Sistem & Requirement</span>
+        <h1>APSIKITA</h1>
+        <span>Aplikasi Supervisi Kolaborasi dan Tindak Lanjut</span>
       </div>
     </div>
 
     <div class="search-box">
       <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-      <input type="text" id="searchInput" class="search-input" placeholder="Cari di dokumentasi...">
+      <input type="text" id="searchInput" class="search-input" placeholder="Cari di dokumentasi APSIKITA...">
     </div>
 
     <div class="header-actions">
@@ -640,7 +641,7 @@
         <div class="breadcrumb">
           <span>docs</span>
           <span>/</span>
-          <span id="breadcrumbFileName" class="breadcrumb-active">01-product-overview.md</span>
+          <span id="breadcrumbFileName" class="breadcrumb-active">01-gambaran-umum-produk.md</span>
         </div>
         <div class="doc-meta">
           <span class="meta-badge" id="lineCountBadge">0 Baris</span>
@@ -699,23 +700,42 @@
     });
 
     const docsData = window.DOCS_DATA || {};
-    let currentDocKey = '01-product-overview.md';
+    let currentDocKey = '01-gambaran-umum-produk.md';
+
+    // Indonesian Display Title Mapping
+    const docDisplayNames = {
+      "README.md": "Panduan & Indeks Dokumentasi",
+      "AGENT-CONTEXT.md": "Konteks & Aturan AI Agent",
+      "01-gambaran-umum-produk.md": "Gambaran Umum Produk",
+      "02-peran-dan-hak-akses.md": "Peran & Hak Akses",
+      "03-alur-kerja-bisnis.md": "Alur Kerja Bisnis",
+      "04-modul-fitur.md": "Modul Fitur Aplikasi",
+      "05-model-domain-data.md": "Model Domain & Data",
+      "06-integrasi-google-drive.md": "Integrasi Google Drive",
+      "07-sistem-ai-dan-verifikasi.md": "Sistem AI & Verifikasi",
+      "08-sistem-observasi-kelas.md": "Sistem Observasi Kelas",
+      "09-dashboard-dan-laporan.md": "Dashboard & Laporan Akhir",
+      "10-panduan-implementasi.md": "Panduan Implementasi",
+      "11-pertanyaan-terbuka.md": "Pertanyaan Terbuka & Asumsi",
+      "12-glosarium.md": "Glosarium Istilah",
+      "SUPERVISI_APP_MASTER_CONTEXT.md": "Catatan Master Client (Mentah)"
+    };
 
     const orderList = [
       "README.md",
       "AGENT-CONTEXT.md",
-      "01-product-overview.md",
-      "02-roles-permissions.md",
-      "03-business-workflows.md",
-      "04-feature-modules.md",
-      "05-domain-model.md",
-      "06-google-drive.md",
-      "07-ai-system.md",
-      "08-observation-system.md",
-      "09-dashboard-reporting.md",
-      "10-implementation-guidelines.md",
-      "11-open-questions.md",
-      "12-glossary.md",
+      "01-gambaran-umum-produk.md",
+      "02-peran-dan-hak-akses.md",
+      "03-alur-kerja-bisnis.md",
+      "04-modul-fitur.md",
+      "05-model-domain-data.md",
+      "06-integrasi-google-drive.md",
+      "07-sistem-ai-dan-verifikasi.md",
+      "08-sistem-observasi-kelas.md",
+      "09-dashboard-dan-laporan.md",
+      "10-panduan-implementasi.md",
+      "11-pertanyaan-terbuka.md",
+      "12-glosarium.md",
       "SUPERVISI_APP_MASTER_CONTEXT.md"
     ];
 
@@ -729,7 +749,7 @@
       breaks: true
     });
 
-    // Populate Sidebar Lists
+    // Populate Sidebar Lists with Indonesian Titles
     function renderSidebar(filterQuery = '') {
       const mainList = document.getElementById('mainDocList');
       const contextList = document.getElementById('contextDocList');
@@ -739,7 +759,9 @@
 
       orderList.forEach(key => {
         if (!docsData[key]) return;
-        if (filterQuery && !key.toLowerCase().includes(filterQuery.toLowerCase()) && !docsData[key].toLowerCase().includes(filterQuery.toLowerCase())) {
+
+        const displayName = docDisplayNames[key] || key;
+        if (filterQuery && !key.toLowerCase().includes(filterQuery.toLowerCase()) && !displayName.toLowerCase().includes(filterQuery.toLowerCase()) && !docsData[key].toLowerCase().includes(filterQuery.toLowerCase())) {
           return;
         }
 
@@ -747,22 +769,18 @@
         const li = document.createElement('li');
         
         let numLabel = '';
-        let titleLabel = key;
-
         if (key === 'README.md') numLabel = 'IDX';
         else if (key === 'AGENT-CONTEXT.md') numLabel = 'CTX';
         else if (key.match(/^\d+/)) {
           numLabel = key.substring(0, 2);
-          titleLabel = key.substring(3).replace('.md', '');
         } else {
           numLabel = 'DOC';
-          titleLabel = key.replace('.md', '');
         }
 
         li.className = `doc-item ${key === currentDocKey ? 'active' : ''}`;
         li.innerHTML = `
           <span class="doc-num">${numLabel}</span>
-          <span class="doc-title-text">${titleLabel}</span>
+          <span class="doc-title-text">${displayName}</span>
         `;
         li.onclick = () => loadDocument(key);
 
@@ -777,10 +795,10 @@
     // Load Document Content
     async function loadDocument(key) {
       currentDocKey = key;
-      const content = docsData[key] || '# Document Not Found';
+      const content = docsData[key] || '# Dokumen Tidak Ditemukan';
 
       // Update Toolbar & Metadata
-      document.getElementById('breadcrumbFileName').textContent = key;
+      document.getElementById('breadcrumbFileName').textContent = docDisplayNames[key] || key;
       const lines = content.split('\n').length;
       const bytes = new Blob([content]).size;
       document.getElementById('lineCountBadge').textContent = `${lines} Baris`;
