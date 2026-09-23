@@ -6,11 +6,18 @@ Siklus supervisi guru terdiri dari 6 tahapan utama yang terintegrasi secara runt
 
 ```mermaid
 flowchart TD
-    T1["1. Perencanaan Supervisi & Pengaturan Sekolah"] --> T2["2. Penyediaan & Penautan Perangkat (Google Drive Public Link)"]
+    T1["1. Perencanaan Supervisi & Pengaturan Sekolah"] --> T2["2. Penyediaan & Penautan Perangkat<br/>(Google Drive Public Link)"]
     T2 --> T3["3. Analisis AI & Verifikasi Perangkat Pembelajaran"]
     T3 --> T4["4. Pelaksanaan Observasi Kelas & Scoring Fleksibel"]
     T4 --> T5["5. Analisis AI Rekomendasi & Penetapan Tindak Lanjut"]
     T5 --> T6["6. Penyusunan & Unduh Laporan Akhir Supervisi"]
+
+    style T1 fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff
+    style T2 fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#fff
+    style T3 fill:#1e293b,stroke:#c084fc,stroke-width:2px,color:#fff
+    style T4 fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#fff
+    style T5 fill:#1e293b,stroke:#f43f5e,stroke-width:2px,color:#fff
+    style T6 fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#fff
 ```
 
 ---
@@ -60,13 +67,12 @@ flowchart TD
 ## 3. Diagram Status & Transisi Dokumen Supervisi
 
 ```mermaid
-stateDiagram-v2
-    [*] --> DRAFT: Inisiasi Supervisi
-    DRAFT --> DEVICE_LINKED: Guru Input Link GDrive Publik
-    DEVICE_LINKED --> AI_ANALYZED: AI Menganalisis Dokumen
-    AI_ANALYZED --> DEVICE_VERIFIED: Human Reviewer Verifikasi AI
-    DEVICE_VERIFIED --> OBSERVED: Observer Mengisi Form Observasi & Catatan
-    OBSERVED --> FOLLOWUP_ACTIVE: AI Sintesis & Approval Tindak Lanjut
-    FOLLOWUP_ACTIVE --> REPORTED: Laporan Supervisi Generasi Akhir
-    REPORTED --> [*]
+flowchart TD
+    Init["Inisiasi Supervisi"] --> DRAFT["Status: DRAFT"]
+    DRAFT -->|Guru Input GDrive Link| DEVICE_LINKED["Status: DEVICE_LINKED"]
+    DEVICE_LINKED -->|AI Process| AI_ANALYZED["Status: AI_ANALYZED"]
+    AI_ANALYZED -->|Human Verification| DEVICE_VERIFIED["Status: DEVICE_VERIFIED"]
+    DEVICE_VERIFIED -->|Observasi Kelas| OBSERVED["Status: OBSERVED"]
+    OBSERVED -->|AI Recommendation & Review| FOLLOWUP_ACTIVE["Status: FOLLOWUP_ACTIVE"]
+    FOLLOWUP_ACTIVE -->|Finalisasi| REPORTED["Status: COMPLETED / REPORTED"]
 ```

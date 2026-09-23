@@ -333,17 +333,17 @@
     }
 
     .markdown-body {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.75;
+      font-size: 1.05rem;
+      line-height: 1.8;
       color: var(--text-main);
     }
 
     /* Typography & Markdown Styling */
     .markdown-body h1 {
       font-family: var(--font-heading);
-      font-size: 2.25rem;
+      font-size: 2.4rem;
       font-weight: 700;
       margin-top: 0;
       margin-bottom: 1.5rem;
@@ -354,7 +354,7 @@
 
     .markdown-body h2 {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 600;
       margin-top: 2rem;
       margin-bottom: 1rem;
@@ -365,7 +365,7 @@
 
     .markdown-body h3 {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 600;
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
@@ -458,8 +458,8 @@
       background: #0d1322;
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 2rem 1.5rem;
-      margin: 1.75rem 0;
+      padding: 2.5rem 1.5rem;
+      margin: 2rem 0;
       width: 100%;
       overflow-x: auto;
       box-shadow: 0 6px 24px rgba(0,0,0,0.4);
@@ -475,10 +475,10 @@
     }
 
     .mermaid svg {
+      min-width: 650px !important;
       width: 100% !important;
       height: auto !important;
-      min-width: 550px;
-      max-width: 100%;
+      font-size: 16px !important;
     }
 
     .markdown-body hr {
@@ -678,23 +678,25 @@
   </div>
 
   <script>
-    // Initialize Mermaid with larger font and scaling
+    // Initialize Mermaid with larger font and spacing
     mermaid.initialize({
       startOnLoad: false,
       theme: 'dark',
       securityLevel: 'loose',
-      fontSize: 16,
+      fontSize: 17,
       fontFamily: 'Inter, sans-serif',
       sequence: {
-        actorFontSize: 14,
-        noteFontSize: 13,
-        messageFontSize: 13,
-        boxTextFontSize: 14,
+        actorFontSize: 15,
+        noteFontSize: 14,
+        messageFontSize: 14,
+        boxTextFontSize: 15,
         useMaxWidth: false
       },
       flowchart: {
         useMaxWidth: false,
-        htmlLabels: true
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 45
       }
     });
 
@@ -859,7 +861,7 @@
       
       mermaid.initialize({
         theme: newTheme === 'light' ? 'default' : 'dark',
-        fontSize: 16
+        fontSize: 17
       });
       loadDocument(currentDocKey);
     };

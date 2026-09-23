@@ -54,15 +54,16 @@ flowchart TD
 Sistem wajib menerapkan alur **Human-in-the-Loop (HITL)** pada seluruh titik integrasi AI:
 
 ```mermaid
-stateDiagram-v2
-    [*] --> AI_Draft: AI Generate Output
-    AI_Draft --> Human_Review: Presented to Reviewer
-    Human_Review --> Accepted: Reviewer Klik Accept
-    Human_Review --> Corrected: Reviewer Edit/Koreksi
-    Human_Review --> Rejected: Reviewer Tolak Output AI
-    Accepted --> Final_Result
-    Corrected --> Final_Result
-    Rejected --> Manual_Input --> Final_Result
+flowchart TD
+    AIDraft["AI Generate Output"] --> Review["Presented to Reviewer"]
+    Review -->|Accept| Accepted["Reviewer Klik Accept"]
+    Review -->|Edit| Corrected["Reviewer Edit / Koreksi"]
+    Review -->|Reject| Rejected["Reviewer Tolak Output AI"]
+    
+    Accepted --> FinalResult["Final Result (Verified)"]
+    Corrected --> FinalResult
+    Rejected --> ManualInput["Manual Input Observer"]
+    ManualInput --> FinalResult
 ```
 
 ### Aturan Review Manusia:
