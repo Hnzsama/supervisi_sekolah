@@ -5,18 +5,26 @@
 Untuk memastikan proses pengembangan berjalan secara terstruktur dan bertahap, urutan implementasi modul yang direkomendasikan adalah sebagai berikut:
 
 ```mermaid
-flowchart TD
-    P1["1. Autentikasi & Role Management"] --> P2["2. Manajemen Data Sekolah & Penugasan Pengawas"]
-    P2 --> P3["3. Manajemen Data Guru & Periode Supervisi"]
-    P3 --> P4["4. Master Jenis Perangkat Pembelajaran & Konfigurasi"]
-    P4 --> P5["5. Integrasi Google Drive (Public Link Input & Validation)"]
-    P5 --> P6["6. Verifikasi Perangkat Pembelajaran (Manual & AI Support)"]
-    P6 --> P7["7. Manajemen Instrumen Observasi Fleksibel (Versi & Skala)"]
-    P7 --> P8["8. Form Sesi Observasi Kelas & Real-time Scoring"]
-    P8 --> P9["9. Synthesis AI (Analisis & Draf Rekomendasi)"]
-    P9 --> P10["10. Modul Tindak Lanjut Supervisi (Action Plan Tracker)"]
-    P10 --> P11["11. Dashboard Multi-Role (Pengawas & Kepala Sekolah)"]
-    P11 --> P12["12. Export & Reporting System (PDF Generation)"]
+flowchart LR
+    subgraph PHASE1["Fase 1: Core & Access"]
+        P1["1. Auth & Role"] --> P2["2. Master Sekolah"]
+        P2 --> P3["3. Master Guru"]
+        P3 --> P4["4. Master Perangkat"]
+    end
+
+    subgraph PHASE2["Fase 2: GDrive & Observasi"]
+        P5["5. GDrive Public Link"] --> P6["6. Verifikasi Perangkat"]
+        P6 --> P7["7. Instrumen Observasi"]
+        P7 --> P8["8. Sesi Observasi Kelas"]
+    end
+
+    subgraph PHASE3["Fase 3: AI & Reporting"]
+        P9["9. AI Synthesis"] --> P10["10. Action Tracker"]
+        P10 --> P11["11. Dashboard Multi-Role"]
+        P11 --> P12["12. Export PDF Laporan"]
+    end
+
+    PHASE1 --> PHASE2 --> PHASE3
 ```
 
 ---

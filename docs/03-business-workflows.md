@@ -5,19 +5,19 @@
 Siklus supervisi guru terdiri dari 6 tahapan utama yang terintegrasi secara runtut:
 
 ```mermaid
-flowchart TD
-    T1["1. Perencanaan Supervisi & Pengaturan Sekolah"] --> T2["2. Penyediaan & Penautan Perangkat<br/>(Google Drive Public Link)"]
-    T2 --> T3["3. Analisis AI & Verifikasi Perangkat Pembelajaran"]
-    T3 --> T4["4. Pelaksanaan Observasi Kelas & Scoring Fleksibel"]
-    T4 --> T5["5. Analisis AI Rekomendasi & Penetapan Tindak Lanjut"]
-    T5 --> T6["6. Penyusunan & Unduh Laporan Akhir Supervisi"]
+flowchart LR
+    T1["1. Perencanaan"] --> T2["2. Penautan Perangkat"]
+    T2 --> T3["3. Analisis & Verifikasi"]
+    T3 --> T4["4. Observasi Kelas"]
+    T4 --> T5["5. Tindak Lanjut"]
+    T5 --> T6["6. Laporan Akhir"]
 
-    style T1 fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style T2 fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#fff
-    style T3 fill:#1e293b,stroke:#c084fc,stroke-width:2px,color:#fff
-    style T4 fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#fff
-    style T5 fill:#1e293b,stroke:#f43f5e,stroke-width:2px,color:#fff
-    style T6 fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#fff
+    style T1 fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#fff
+    style T2 fill:#1e293b,stroke:#818cf8,stroke-width:1.5px,color:#fff
+    style T3 fill:#1e293b,stroke:#c084fc,stroke-width:1.5px,color:#fff
+    style T4 fill:#1e293b,stroke:#34d399,stroke-width:1.5px,color:#fff
+    style T5 fill:#1e293b,stroke:#f43f5e,stroke-width:1.5px,color:#fff
+    style T6 fill:#1e293b,stroke:#fbbf24,stroke-width:1.5px,color:#fff
 ```
 
 ---
@@ -67,12 +67,12 @@ flowchart TD
 ## 3. Diagram Status & Transisi Dokumen Supervisi
 
 ```mermaid
-flowchart TD
-    Init["Inisiasi Supervisi"] --> DRAFT["Status: DRAFT"]
-    DRAFT -->|Guru Input GDrive Link| DEVICE_LINKED["Status: DEVICE_LINKED"]
-    DEVICE_LINKED -->|AI Process| AI_ANALYZED["Status: AI_ANALYZED"]
-    AI_ANALYZED -->|Human Verification| DEVICE_VERIFIED["Status: DEVICE_VERIFIED"]
-    DEVICE_VERIFIED -->|Observasi Kelas| OBSERVED["Status: OBSERVED"]
-    OBSERVED -->|AI Recommendation & Review| FOLLOWUP_ACTIVE["Status: FOLLOWUP_ACTIVE"]
-    FOLLOWUP_ACTIVE -->|Finalisasi| REPORTED["Status: COMPLETED / REPORTED"]
+flowchart LR
+    Init["Start"] --> DRAFT["DRAFT"]
+    DRAFT --> DEVICE_LINKED["DEVICE_LINKED"]
+    DEVICE_LINKED --> AI_ANALYZED["AI_ANALYZED"]
+    AI_ANALYZED --> DEVICE_VERIFIED["DEVICE_VERIFIED"]
+    DEVICE_VERIFIED --> OBSERVED["OBSERVED"]
+    OBSERVED --> FOLLOWUP_ACTIVE["FOLLOWUP_ACTIVE"]
+    FOLLOWUP_ACTIVE --> REPORTED["REPORTED"]
 ```
