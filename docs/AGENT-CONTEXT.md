@@ -42,18 +42,20 @@ Sebelum mulai mengerjakan fitur, agent wajib membaca dokumen berikut sesuai kont
 | Dokumen | Isi Utama |
 | :--- | :--- |
 | [README.md](file:///home/darbi/Projects/supervisi_sekolah/docs/README.md) | Indeks & Panduan Navigasi Dokumentasi |
-| [01-product-overview.md](file:///home/darbi/Projects/supervisi_sekolah/docs/01-product-overview.md) | Visi Produk, Alur Utama, dan Prinsip Dasar |
-| [02-roles-permissions.md](file:///home/darbi/Projects/supervisi_sekolah/docs/02-roles-permissions.md) | Role (Pengawas, Kepsek, Guru) & Scope Akses |
-| [03-business-workflows.md](file:///home/darbi/Projects/supervisi_sekolah/docs/03-business-workflows.md) | Alur Bisnis End-to-End & Tahapan Supervisi |
-| [04-feature-modules.md](file:///home/darbi/Projects/supervisi_sekolah/docs/04-feature-modules.md) | Modul Fitur Aplikasi |
-| [05-domain-model.md](file:///home/darbi/Projects/supervisi_sekolah/docs/05-domain-model.md) | Entitas Konseptual, Relasi, & Audit Log |
-| [06-google-drive.md](file:///home/darbi/Projects/supervisi_sekolah/docs/06-google-drive.md) | Konsep Integrasi Google Drive via Public Link |
-| [07-ai-system.md](file:///home/darbi/Projects/supervisi_sekolah/docs/07-ai-system.md) | Arsitektur AI & Human-in-the-Loop |
-| [08-observation-system.md](file:///home/darbi/Projects/supervisi_sekolah/docs/08-observation-system.md) | Fitur Observasi Kelas, Instrumen & Scoring |
-| [09-dashboard-reporting.md](file:///home/darbi/Projects/supervisi_sekolah/docs/09-dashboard-reporting.md) | Dashboard Multi-Role & Laporan |
-| [10-implementation-guidelines.md](file:///home/darbi/Projects/supervisi_sekolah/docs/10-implementation-guidelines.md) | Prioritas Fitur & Panduan Anti-Hardcoding |
-| [11-open-questions.md](file:///home/darbi/Projects/supervisi_sekolah/docs/11-open-questions.md) | Daftar Asumsi & Pertanyaan Terbuka |
-| [12-glossary.md](file:///home/darbi/Projects/supervisi_sekolah/docs/12-glossary.md) | Glosarium Istilah Domain Supervisi |
+| [01-gambaran-umum-produk.md](file:///home/darbi/Projects/supervisi_sekolah/docs/01-gambaran-umum-produk.md) | Visi Produk, Alur Utama, dan Prinsip Dasar |
+| [02-peran-dan-hak-akses.md](file:///home/darbi/Projects/supervisi_sekolah/docs/02-peran-dan-hak-akses.md) | Role (Pengawas, Kepsek, Guru) & Scope Akses |
+| [03-alur-kerja-bisnis.md](file:///home/darbi/Projects/supervisi_sekolah/docs/03-alur-kerja-bisnis.md) | Alur Bisnis End-to-End & Tahapan Supervisi |
+| [04-modul-fitur.md](file:///home/darbi/Projects/supervisi_sekolah/docs/04-modul-fitur.md) | Modul Fitur Aplikasi |
+| [05-model-domain-data.md](file:///home/darbi/Projects/supervisi_sekolah/docs/05-model-domain-data.md) | Entitas Konseptual, Relasi, & Audit Log |
+| [06-integrasi-google-drive.md](file:///home/darbi/Projects/supervisi_sekolah/docs/06-integrasi-google-drive.md) | Direct Upload Multi-Format & Public GDrive Link |
+| [07-sistem-ai-dan-verifikasi.md](file:///home/darbi/Projects/supervisi_sekolah/docs/07-sistem-ai-dan-verifikasi.md) | Arsitektur AI & Human-in-the-Loop |
+| [08-sistem-observasi-kelas.md](file:///home/darbi/Projects/supervisi_sekolah/docs/08-sistem-observasi-kelas.md) | Fitur Observasi Kelas, Instrumen & Scoring |
+| [09-dashboard-dan-laporan.md](file:///home/darbi/Projects/supervisi_sekolah/docs/09-dashboard-dan-laporan.md) | Dashboard Multi-Role & Laporan |
+| [10-panduan-implementasi.md](file:///home/darbi/Projects/supervisi_sekolah/docs/10-panduan-implementasi.md) | Prioritas Fitur & Panduan Anti-Hardcoding |
+| [11-pertanyaan-terbuka.md](file:///home/darbi/Projects/supervisi_sekolah/docs/11-pertanyaan-terbuka.md) | Daftar Asumsi & Pertanyaan Terbuka |
+| [12-glosarium.md](file:///home/darbi/Projects/supervisi_sekolah/docs/12-glosarium.md) | Glosarium Istilah Domain Supervisi |
+| [13-alur-pendaftaran-dan-invitasi-user.md](file:///home/darbi/Projects/supervisi_sekolah/docs/13-alur-pendaftaran-dan-invitasi-user.md) | Alur Pendaftaran & Invitasi Email Pengguna |
+
 
 ---
 

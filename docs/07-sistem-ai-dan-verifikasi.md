@@ -2,11 +2,12 @@
 
 ## 1. Peran AI dalam Sistem Supervisi
 
-AI difungsikan sebagai **Co-Pilot / Asisten Kerja Intelijen** bagi Pengawas dan Kepala Sekolah. AI membantu mempercepat pemeriksaan dokumen dan pengolahan data observasi, namun **TIDAK MENGAMBIL KEPUTUSAN FINAL**.
+AI difungsikan sebagai **Co-Pilot / Asisten Kerja Intelijen** bagi Pengawas dan Kepala Sekolah. AI membantu mempercepat pemeriksaan dokumen (dalam format DOCX, PDF, XLSX, PPTX, gambar scan, maupun tautan Google Drive) dan pengolahan data observasi, namun **TIDAK MENGAMBIL KEPUTUSAN FINAL**.
 
 ```mermaid
 flowchart TD
     subgraph INPUTS["Input Data"]
+        UPL["Direct Upload Files (DOCX, PDF, Excel, PPT)"]
         GDF["GDrive Public Links"]
         OBS["Hasil Observasi & Catatan"]
     end
@@ -20,12 +21,14 @@ flowchart TD
         REV["Pengawas & Kepala Sekolah<br/>(Accept / Edit / Reject)"]
     end
 
+    UPL --> AID
     GDF --> AID
     OBS --> AIS
     AID --> REV
     AIS --> REV
     REV --> FIN["Keputusan & Laporan Final"]
 ```
+
 
 ---
 

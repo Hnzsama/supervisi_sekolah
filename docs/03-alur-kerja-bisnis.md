@@ -6,7 +6,7 @@ Siklus supervisi guru terdiri dari 6 tahapan utama yang terintegrasi secara runt
 
 ```mermaid
 flowchart LR
-    T1["1. Perencanaan"] --> T2["2. Penautan Perangkat"]
+    T1["1. Onboarding & Sekolah"] --> T2["2. Upload Perangkat"]
     T2 --> T3["3. Analisis & Verifikasi"]
     T3 --> T4["4. Observasi Kelas"]
     T4 --> T5["5. Tindak Lanjut"]
@@ -24,18 +24,22 @@ flowchart LR
 
 ## 2. Rincian Langkah per Tahapan Workflow
 
-### Tahap 1: Perencanaan Supervisi & Pengaturan Sekolah
-1. **Pengawas** masuk ke aplikasi, mengonfigurasi periode supervisi (misal Semester Ganjil 2026/2027).
-2. **Pengawas** menambahkan data sekolah dampingan baru secara manual jika belum ada dalam sistem.
-3. **Kepala Sekolah** atau sistem mendaftarkan data guru yang akan disupervisi pada periode berjalan.
+### Tahap 1: Inisialisasi Sekolah & Registrasi User via Invitasi Email
+1. **Pengurus (Pengawas / Admin System)** masuk ke aplikasi dan terlebih dahulu **membuat data Sekolah (`schools`)** sebagai wadah tenant.
+2. **Pengurus** mendaftarkan Kepala Sekolah dengan memasukkan email & data sekolah -> **Sistem mengirimkan Email Invitasi** dengan token terenkripsi.
+3. **Kepala Sekolah** membuka email, mengklik link aktivasi, menetapkan kata sandi baru, dan mengaktifkan akun.
+4. **Kepala Sekolah** (atau Pengurus) mendaftarkan Guru-Guru dengan memasukkan nama, email, NIP, mapel -> **Sistem mengirimkan Email Invitasi** ke Guru.
+5. **Guru** mengaktifkan akun via email, membuat password, dan melengkapi data profil.
+6. **Pengawas / Kepala Sekolah** mengonfigurasi periode supervisi (misal: Semester Ganjil 2026/2027).
 
-### Tahap 2: Penyediaan & Penautan Perangkat (Google Drive Public Link)
-1. **Guru** menyusun berkas di Google Drive dan membagikannya dengan akses *Anyone with the link can view*.
-2. **Guru** memasukkan/menempelkan (paste) tautan publik folder atau berkas perangkat ke form aplikasi supervisi.
-3. **Aplikasi** menyimpan tautan tersebut dan memuat metadata berkas untuk kebutuhan analisis AI dan verifikasi Pengawas/Kepsek.
+### Tahap 2: Penyediaan & Unggah Perangkat Pembelajaran (Multi-Format & GDrive)
+1. **Guru** menyiapkan berkas perangkat pembelajaran (RPP, Modul Ajar, Bahan Ajar, LKPD, Asesmen, Prota/Promes).
+2. **Opsi 1 — Upload Berkas Langsung:** Guru mengunggah berkas dalam **format apapun (PDF, DOCX, XLSX/Excel, PPTX/PPT, PNG/JPG)** langsung dari perangkat komputer/HP.
+3. **Opsi 2 — Public Link Google Drive:** Guru menempelkan tautan publik berkas/folder Google Drive (*Anyone with the link can view*).
+4. **Aplikasi** menyimpan berkas/tautan dan memproses ekstraksi teks/metadata untuk kebutuhan analisis AI dan verifikasi Pengawas/Kepsek.
 
 ### Tahap 3: Analisis AI & Verifikasi Perangkat Pembelajaran
-1. **AI System** memproses isi dokumen dari Google Drive untuk mendeteksi jenis perangkat, tingkat kelengkapan komponen, dan indikator kualitas.
+1. **AI System** memproses isi dokumen (dari unggahan langsung maupun Google Drive) untuk mendeteksi jenis perangkat, tingkat kelengkapan komponen, dan indikator kualitas.
 2. **AI System** menampilkan saran pemetaan dan catatan analisis kelengkapan ke dashboard Pengawas dan Kepala Sekolah.
 3. **Pengawas / Kepala Sekolah (Human Reviewer)** meninjau setiap item hasil analisis AI:
    - Menyetujui (`Accept`),
@@ -69,10 +73,11 @@ flowchart LR
 ```mermaid
 flowchart LR
     Init["Start"] --> DRAFT["DRAFT"]
-    DRAFT --> DEVICE_LINKED["DEVICE_LINKED"]
+    DRAFT --> DEVICE_LINKED["DEVICE_LINKED / UPLOADED"]
     DEVICE_LINKED --> AI_ANALYZED["AI_ANALYZED"]
     AI_ANALYZED --> DEVICE_VERIFIED["DEVICE_VERIFIED"]
     DEVICE_VERIFIED --> OBSERVED["OBSERVED"]
     OBSERVED --> FOLLOWUP_ACTIVE["FOLLOWUP_ACTIVE"]
     FOLLOWUP_ACTIVE --> REPORTED["REPORTED"]
 ```
+

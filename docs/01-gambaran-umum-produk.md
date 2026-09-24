@@ -8,7 +8,7 @@ Tujuan utama aplikasi adalah mempermudah dan menstandarkan siklus supervisi guru
 
 ```mermaid
 flowchart TD
-    A[Perencanaan Pembelajaran] --> B[Pemeriksaan Perangkat Pembelajaran<br/>Google Drive Public Link]
+    A[Perencanaan Pembelajaran & Manajemen Sekolah] --> B[Penyediaan & Upload Perangkat Pembelajaran<br/>(DOCX, PDF, Excel, PPTX, GDrive Link)]
     B --> C[Verifikasi Manusia<br/>Human Cross-Check]
     C --> D[Observasi / Pelaksanaan Pembelajaran di Kelas]
     D --> E[Analisis Hasil & Catatan Observasi]
@@ -21,7 +21,7 @@ flowchart TD
 ## 2. Peran AI dalam Produk
 
 Aplikasi memanfaatkan **Artificial Intelligence (AI)** sebagai asisten untuk:
-1. Menganalisis kelengkapan dan kualitas perangkat pembelajaran yang terhubung via Google Drive.
+1. Menganalisis kelengkapan dan kualitas perangkat pembelajaran yang diunggah dalam berbagai format berkas (DOCX, PDF, XLSX, PPTX, scan/gambar) maupun tautan Google Drive.
 2. Membaca dan mensintesis hasil observasi kelas bersama catatan dari observer.
 3. Memberikan rekomendasi program tindak lanjut bagi guru.
 
@@ -33,10 +33,11 @@ Aplikasi memanfaatkan **Artificial Intelligence (AI)** sebagai asisten untuk:
 
 Berdasarkan komunikasi awal dengan client:
 - Aplikasi dibuat untuk menilai kinerja guru dalam rangka supervisi akademik.
-- Pengguna aplikasi terdiri dari 3 role: **Pengawas**, **Kepala Sekolah**, dan **Guru**.
+- Pengguna aplikasi terdiri dari 3 role: **Pengawas (Pengurus)**, **Kepala Sekolah**, dan **Guru**.
+- **Alur Pendaftaran User:** Pengurus wajib mendaftarkan/membuat data Sekolah terlebih dahulu sebagai wadah. Setelah itu Pengurus mengundang Kepala Sekolah via Email Invitation, dan Kepala Sekolah (atau Pengurus) mengundang Guru-Guru via Email Invitation.
+- **Fleksibilitas Upload Berkas:** Guru dapat mengunggah berkas perangkat pembelajaran dalam **berbagai format (DOCX, PDF, XLSX/Excel, PPTX/PPT, Gambar, dll.)** maupun menautkan Google Drive Public Link.
 - Pengawas memegang tanggung jawab atas **beberapa sekolah**.
 - Kepala Sekolah berfokus pada **sekolah yang dipimpinnya sendiri**.
-- Guru menyediakan dokumen perangkat pembelajaran yang tersimpan di **Google Drive** (via Public Link "Anyone with the link can view").
 
 ---
 
@@ -47,19 +48,22 @@ Berikut adalah contoh skenario alur kerja dari awal sampai akhir:
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Pengawas
+    actor Pengawas as Pengurus / Pengawas
     actor Kepsek as Kepala Sekolah
     actor Guru
     participant App as Aplikasi
     participant AI Engine as AI
 
-    Pengawas->>App: Tambah Sekolah Dampingan
-    Kepsek->>App: Daftarkan Guru Sekolah
-    Guru->>App: Input Link GDrive Publik
-    AI Engine->>App: Analisis Kelengkapan Perangkat
-    Kepsek->>App: Review & Verifikasi Perangkat
+    Pengawas->>App: Tambah Data Sekolah Dampingan Baru
+    Pengawas->>App: Invite Kepala Sekolah via Email
+    Kepsek->>App: Aktivasi Akun Kepsek via Link Email Token
+    Kepsek->>App: Invite Guru-Guru Sekolah via Email
+    Guru->>App: Aktivasi Akun Guru & Set Password
+    Guru->>App: Upload Berkas Perangkat (DOCX/PDF/Excel/PPT/GDrive)
+    AI Engine->>App: Analisis Kelengkapan Komponen Perangkat
+    Kepsek->>App: Review & Verifikasi Perangkat Guru
     Kepsek->>App: Isi Observasi & Scoring Kelas
-    AI Engine->>App: Generate Draf Tindak Lanjut
+    AI Engine->>App: Generate Draf Rekomendasi Tindak Lanjut
     Kepsek->>App: Finalisasi Tindak Lanjut
     App->>Pengawas: Download Laporan Supervisi (PDF)
 ```
@@ -68,6 +72,8 @@ sequenceDiagram
 
 ## 5. Ringkasan Fitur Utama Produk
 
-- **Document / Planning Management:** Pengelolaan dan pemeriksaan perangkat pembelajaran via Google Drive Public Link.
+- **User Onboarding & School Management:** Manajemen hirarki pengguna berbasis invitasi email dan pembuatan master data sekolah terlebih dahulu.
+- **Multi-Format Document Upload & GDrive Link:** Fleksibilitas penyediaan berkas perangkat pembelajaran dalam format DOCX, PDF, XLSX, PPTX, image, maupun tautan Google Drive.
 - **Supervision / Observation Management:** Pengelolaan instrumen fleksibel, pengisian observasi kelas, dan kalkulasi skor otomatis.
 - **AI-Assisted Follow-up & Reporting:** Rekomendasi tindak lanjut berbantuan AI serta pembuatan laporan supervisi terpadu.
+

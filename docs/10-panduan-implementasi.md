@@ -6,26 +6,27 @@ Untuk memastikan proses pengembangan berjalan secara terstruktur dan bertahap, u
 
 ```mermaid
 flowchart LR
-    subgraph PHASE1["Fase 1: Core & Access"]
-        P1["1. Auth & Role"] --> P2["2. Master Sekolah"]
-        P2 --> P3["3. Master Guru"]
-        P3 --> P4["4. Master Perangkat"]
+    subgraph PHASE1["Fase 1: Core & Onboarding"]
+        P1["1. Auth & Token Service"] --> P2["2. Master Sekolah (Prasyarat)"]
+        P2 --> P3["3. Email Invitation Workflow"]
+        P3 --> P4["4. User Profile & Role Setup"]
     end
 
-    subgraph PHASE2["Fase 2: GDrive & Observasi"]
-        P5["5. GDrive Public Link"] --> P6["6. Verifikasi Perangkat"]
-        P6 --> P7["7. Instrumen Observasi"]
+    subgraph PHASE2["Fase 2: Multi-Format Upload & Observasi"]
+        P5["5. Multi-Format Upload & GDrive Parser"] --> P6["6. Verifikasi Perangkat (HITL)"]
+        P6 --> P7["7. Instrumen Observasi Fleksibel"]
         P7 --> P8["8. Sesi Observasi Kelas"]
     end
 
     subgraph PHASE3["Fase 3: AI & Reporting"]
-        P9["9. AI Synthesis"] --> P10["10. Action Tracker"]
+        P9["9. AI Synthesis & Recommendation"] --> P10["10. Action Tracker"]
         P10 --> P11["11. Dashboard Multi-Role"]
         P11 --> P12["12. Export PDF Laporan"]
     end
 
     PHASE1 --> PHASE2 --> PHASE3
 ```
+
 
 ---
 

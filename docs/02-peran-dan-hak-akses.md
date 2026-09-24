@@ -2,14 +2,14 @@
 
 ## 1. Definisi Role Pengguna
 
-Aplikasi memiliki 3 role utama yang ditentukan berdasarkan kewenangan dan batasan cakupan (scope) data:
+Aplikasi memiliki 3 role utama yang ditentukan berdasarkan kewenangan, hirarki pendaftaran, dan batasan cakupan (scope) data:
 
 ```mermaid
 graph TD
     SYS["SYSTEM ROLES"]
-    SYS --> P["PENGAWAS<br/>(Multi-Sekolah)"]
-    SYS --> K["KEPALA SEKOLAH<br/>(Single-Sekolah)"]
-    SYS --> G["GURU<br/>(Self-Only Data)"]
+    SYS --> P["PENGAWAS / PENGURUS<br/>(Multi-Sekolah & Admin Onboarding)"]
+    SYS --> K["KEPALA SEKOLAH<br/>(Single-Sekolah & Local Admin)"]
+    SYS --> G["GURU<br/>(Self-Only Data & Content Provider)"]
 
     style SYS fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff
     style P fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
@@ -21,25 +21,15 @@ graph TD
 
 ## 2. Rincian Role & Scope Akses
 
-### 2.1 Pengawas Sekolah
-- **Cakupan (Scope):** Memiliki tanggung jawab atas **beberapa sekolah** (multi-school access).
-- **Hirarki:**
-
-```mermaid
-graph TD
-    PA["Pengawas A"] --> S1["Sekolah 1"]
-    PA --> S2["Sekolah 2"]
-    PA --> S3["Sekolah 3"]
-
-    S1 --> G1["Guru 1"]
-    S1 --> G2["Guru 2"]
-    S2 --> G3["Guru 3"]
-```
-
-- **Kewenangan Utama:**
+### 2.1 Pengawas Sekolah / Pengurus
+- **Cakupan (Scope):** Memiliki tanggung jawab atas **beberapa sekolah** (multi-school access) dan administrasi onboarding tingkat wilayah/pengawas.
+- **Hirarki & Kewenangan Onboarding:**
+  - **Prasyarat Utama:** Pengawas wajib membuat data master Sekolah (`schools`) terlebih dahulu sebelum mengundang pengguna lain.
+  - Mengirimkan **Invitasi Email** untuk mendaftarkan Kepala Sekolah pada sekolah dampingan.
+  - Mengirimkan **Invitasi Email** untuk mendaftarkan Guru jika diperlukan.
+- **Kewenangan Utama Supervisi:**
   - Melihat dashboard agregat lintas sekolah yang diawasi.
-  - Menambahkan data sekolah secara manual ke dalam cakupan pengawasannya.
-  - Memeriksa perangkat pembelajaran guru dari semua sekolah dampingan.
+  - Memeriksa perangkat pembelajaran guru dari semua sekolah dampingan (format DOCX, PDF, Excel, PPT, Maupun GDrive Link).
   - Melakukan cross-check dan verifikasi terhadap hasil analisis AI.
   - Mengelola dan membuat instrumen observasi pembelajaran.
   - Melaksanakan observasi kelas, mengisi penilaian, dan memberikan catatan.
@@ -48,31 +38,27 @@ graph TD
 
 ### 2.2 Kepala Sekolah
 - **Cakupan (Scope):** Berfokus penuh pada **satu sekolahnya sendiri** (single-school access).
-- **Hirarki:**
-
-```mermaid
-graph TD
-    KS["Kepala Sekolah A"] --> SA["Sekolah A"]
-    SA --> G1["Guru 1"]
-    SA --> G2["Guru 2"]
-    SA --> G15["Guru 15"]
-```
-
-- **Kewenangan Utama:**
-  - Melihat dashboard khusus untuk sekolahnya sendiri (tidak melihat data sekolah lain).
+- **Hirarki & Kewenangan Onboarding:**
+  - Diundang ke sistem oleh Pengurus via Email Invitation.
+  - Berwenang mengirimkan **Invitasi Email** untuk mendaftarkan Guru-Guru di sekolahnya.
+- **Kewenangan Utama Supervisi:**
+  - Melihat dashboard khusus untuk sekolahnya sendiri.
   - Memantau daftar guru dan progres supervisi di sekolahnya.
-  - Memeriksa kelengkapan perangkat pembelajaran guru di sekolahnya.
+  - Memeriksa kelengkapan perangkat pembelajaran guru di sekolahnya (berbagai format berkas).
   - Melakukan cross-check manual terhadap hasil rekomendasi AI.
-  - Menyesuaikan/membuat instrumen observasi (jika diizinkan aturan sekolah).
+  - Menyesuaikan/membuat instrumen observasi.
   - Melakukan observasi kelas, memberi nilai, dan memberikan catatan per indikator.
   - Mengelola dan menetapkan rencana tindak lanjut supervisi guru.
   - Mengunduh laporan supervisi untuk guru di sekolahnya.
 
 ### 2.3 Guru
 - **Cakupan (Scope):** Hanya memiliki akses terhadap **data dan dokumen miliknya sendiri** (self-only access).
+- **Hirarki & Onboarding:**
+  - Diundang oleh Kepala Sekolah atau Pengurus via Email Invitation.
+  - Mengaktifkan akun dengan menetapkan kata sandi pribadi via token email.
 - **Kewenangan Utama:**
-  - Menautkan Public Link Google Drive ke aplikasi.
-  - Memilih/menempelkan folder/dokumen perangkat pembelajaran untuk disupervisi.
+  - **Upload Berkas Perangkat Pembelajaran:** Mengunggah langsung berkas persiapan mengajar dalam **format apapun (DOCX, PDF, XLSX/Excel, PPTX/PPT, Gambar/Scan, dll.)**.
+  - **Input Public Link Google Drive:** Menautkan folder/berkas Google Drive publik sebagai opsi alternatif.
   - Melihat hasil verifikasi perangkat pembelajaran dari Pengawas/Kepsek.
   - Melihat jadwal dan hasil observasi pembelajaran.
   - Melihat rekomendasi dan program tindak lanjut yang telah disetujui.
@@ -81,11 +67,14 @@ graph TD
 
 ## 3. Matriks Hak Akses Fitur (Permission Matrix)
 
-| Fitur / Modul | Pengawas | Kepala Sekolah | Guru |
+| Fitur / Modul | Pengawas / Pengurus | Kepala Sekolah | Guru |
 | :--- | :---: | :---: | :---: |
+| **Buat Master Data Sekolah (Prasyarat)** | ✅ | ❌ | ❌ |
+| **Invite Kepala Sekolah via Email** | ✅ | ❌ | ❌ |
+| **Invite Guru via Email** | ✅ | ✅ (Sekolah Sendiri) | ❌ |
 | **Dashboard Rekap Multi-Sekolah** | ✅ | ❌ | ❌ |
 | **Dashboard Rekap Sekolah Sendiri** | ✅ | ✅ | ❌ |
-| **Tambah Data Sekolah Manual** | ✅ | ❌ | ❌ |
+| **Upload Berkas Perangkat (DOCX/PDF/Excel/PPT/dll)** | ❌ | ❌ | ✅ (Milik sendiri) |
 | **Input Public Link Google Drive** | ❌ | ❌ | ✅ (Milik sendiri) |
 | **Lihat Perangkat Pembelajaran** | ✅ (Sekolah Dampingan) | ✅ (Sekolah Sendiri) | ✅ (Milik Sendiri) |
 | **Verifikasi AI Perangkat** | ✅ | ✅ | ❌ |
@@ -105,4 +94,6 @@ graph TD
    - Query data untuk Pengawas wajib difilter berdasarkan `supervisor_school_assignments`.
    - Query data untuk Kepala Sekolah wajib difilter berdasarkan `user.school_id`.
    - Query data untuk Guru wajib difilter berdasarkan `user.id` / `teacher_id`.
-3. **Audit Access:** Setiap percobaan akses ilegal ke sekolah lain harus dicatat pada log audit sistem.
+3. **Validasi Token Invitasi:** Pendaftaran user baru wajib melalui pemicuan token unik terenkripsi dengan waktu kadaluarsa (72 jam) dan pencegahan akses login sebelum akun `ACTIVE`.
+4. **Audit Access:** Setiap percobaan akses ilegal ke sekolah lain harus dicatat pada log audit sistem.
+

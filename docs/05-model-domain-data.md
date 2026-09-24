@@ -27,8 +27,8 @@ erDiagram
 > **Catatan:** Nama tabel dan struktur di bawah adalah **konsep domain**, dapat disesuaikan dengan ORM / database engine yang dipilih (PostgreSQL, MySQL, Prisma, TypeORM, dll.).
 
 ### 2.1 Management & Access
-- **`users`**: `id`, `name`, `email`, `role` (`SUPERVISOR`, `PRINCIPAL`, `TEACHER`), `created_at`.
-- **`schools`**: `id`, `npsn`, `name`, `address`, `created_by_user_id` (Pengawas yang menambah manual).
+- **`users`**: `id`, `name`, `email`, `password_hash`, `role` (`SUPERVISOR`, `PRINCIPAL`, `TEACHER`), `account_status` (`PENDING_INVITATION`, `EXPIRED`, `ACTIVE`, `SUSPENDED`), `invitation_token`, `invitation_sent_at`, `invited_by_user_id`, `school_id`, `created_at`.
+- **`schools`**: `id`, `npsn`, `name`, `address`, `created_by_user_id` (Pengawas yang membuat data sekolah).
 - **`school_supervisor_assignments`**: `id`, `supervisor_id`, `school_id`, `assigned_at`.
 - **`teachers`**: `id`, `user_id`, `school_id`, `nip`, `subject_taught`, `grade_level`.
 
@@ -36,7 +36,8 @@ erDiagram
 - **`supervision_periods`**: `id`, `name` (misal: Semester Ganjil 2026/2027), `start_date`, `end_date`, `is_active`.
 - **`supervisions`**: `id`, `teacher_id`, `period_id`, `status` (`DRAFT`, `IN_PROGRESS`, `COMPLETED`), `created_at`.
 - **`device_types`**: `id`, `code`, `name` (Modul Ajar, RPP, LKPD, dll.), `is_required`, `description`.
-- **`teacher_device_files`**: `id`, `supervision_id`, `device_type_id`, `gdrive_public_url`, `file_name`, `ai_analysis_json`, `ai_recommendation_text`, `human_review_status` (`PENDING`, `APPROVED`, `REJECTED`, `CORRECTED`), `reviewer_notes`, `verified_by_user_id`, `verified_at`.
+- **`teacher_device_files`**: `id`, `supervision_id`, `device_type_id`, `upload_type` (`DIRECT_UPLOAD`, `GDRIVE_LINK`), `file_path` (path internal storage), `file_format` (`pdf`, `docx`, `xlsx`, `pptx`, `png`, `gdrive_link`), `gdrive_public_url`, `file_name`, `file_size_bytes`, `ai_analysis_json`, `ai_recommendation_text`, `human_review_status` (`PENDING`, `APPROVED`, `REJECTED`, `CORRECTED`), `reviewer_notes`, `verified_by_user_id`, `verified_at`.
+
 
 ### 2.3 Observasi & Scoring
 - **`observation_instruments`**: `id`, `title`, `description`, `scale_min` (1), `scale_max` (3 atau 4), `is_active`.

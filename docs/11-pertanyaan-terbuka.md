@@ -7,18 +7,18 @@
 ## 1. Daftar Pertanyaan Terbuka per Domain
 
 ### 1.1 Akun & Otorisasi Pengguna
-| ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan | Status |
+| ID | Topik | Pertanyaan Terbuka | Keputusan Final | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| `Q-ACC-01` | Akun Guru | Apakah Guru wajib membuat akun mandiri atau dibuatkan oleh Kepsek/Pengawas? | Akun Guru diundang/didaftarkan oleh Kepsek/Admin Sekolah. | `OPEN` |
-| `Q-ACC-02` | Admin Sistem | Apakah ada role Super Admin yang mengelola seluruh sistem? | Ada role Admin Sistem untuk manajemen master awal. | `OPEN` |
-| `Q-ACC-03` | Penambahan Sekolah | Saat Pengawas menambah sekolah manual, apakah sekaligus membuatkan akun Kepsek? | Pengawas hanya memasukkan master data sekolah, akun Kepsek dibuat terpisah. | `OPEN` |
+| `Q-ACC-01` | Alur Pendaftaran | Apakah registrasi bersifat terbuka atau via email invitation? | User diundang via email invitation dengan token. Pengurus wajib membuat data Sekolah lebih dulu, lalu invite Kepsek. Kepsek/Pengurus lalu invite Guru. | `RESOLVED` |
+| `Q-ACC-02` | Admin Sistem | Apakah ada role Super Admin yang mengelola seluruh sistem? | Ada role Admin Sistem / Pengurus untuk manajemen master awal dan sekolah. | `OPEN` |
+| `Q-ACC-03` | Pembuatan Sekolah | Bagaimana hubungan penambahan sekolah dan akun Kepsek? | Pengurus wajib membuat data sekolah terlebih dahulu, baru kemudian mengundang Kepala Sekolah ke sekolah tersebut via email invitation. | `RESOLVED` |
 
 ### 1.2 Integrasi Google Drive & Dokumen
-| ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan | Status |
+| ID | Topik | Pertanyaan Terbuka | Keputusan Final | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| `Q-GDR-01` | Shared Drive | Apakah sistem mendukung Google Shared Drive milik sekolah? | Mendukung *My Drive* dan *Shared Drive*. | `OPEN` |
-| `Q-GDR-02` | Local Copy | Apakah file dari GDrive disalin ke storage lokal aplikasi? | File tidak disalin, hanya membaca metadata & view via URL GDrive. | `OPEN` |
-| `Q-GDR-03` | Jenis File | Ekstensi file apa saja yang diproses AI? | PDF, DOCX, dan Google Docs. | `OPEN` |
+| `Q-GDR-01` | Shared Drive | Apakah sistem mendukung Google Shared Drive milik sekolah? | Mendukung *My Drive* dan *Shared Drive* via public link. | `OPEN` |
+| `Q-GDR-02` | Local Copy | Apakah file dari GDrive disalin ke storage lokal aplikasi? | File GDrive tidak disalin, tetapi file direct upload disalin ke storage internal. | `OPEN` |
+| `Q-GDR-03` | Format File Upload | Ekstensi file apa saja yang diizinkan untuk diunggah oleh Guru? | Guru bisa mengunggah berkas dalam **format apapun** (DOCX, PDF, XLSX/Excel, PPTX/PPT, Gambar/Scan, TXT) maupun Google Drive Public Link. | `RESOLVED` |
 
 ### 1.3 AI Engine & Privacy
 | ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan | Status |
@@ -48,6 +48,8 @@ Setiap kali ada keputusan baru dari client/pengguna, catat pada bagian ini:
 ```text
 [Tanggal] — [ID Pertanyaan] — [Keputusan Final] — [Disetujui Oleh]
 ------------------------------------------------------------------
-Contoh:
-2026-09-23 — Q-OBS-02 — Diputuskan bobot indikator sama rata — Client
+2026-09-24 — Q-ACC-01 — User Onboarding dilakukan via Email Invitation. Pengurus wajib membuat data Sekolah terlebih dahulu sebagai wadah, lalu mengundang Kepsek via email invitation. Kepsek/Pengurus mengundang Guru via email. — User / Client Requirement
+2026-09-24 — Q-ACC-03 — Pembuatan Sekolah adalah PRASYARAT MUTLAK sebelum pendaftaran Kepsek dan Guru. — User / Client Requirement
+2026-09-24 — Q-GDR-03 — Guru dapat mengunggah berkas dalam FORMAT APA PUN (DOCX, PDF, XLSX, PPTX, Scan/Gambar, dll.) maupun Public Link GDrive. — User / Client Requirement
 ```
+

@@ -34,9 +34,12 @@ Selamat datang di pusat dokumentasi **Sistem Supervisi Guru Berbasis AI**. Folde
     Daftar pertanyaan terbuka, keputusan yang dibutuhkan (`DECISION REQUIRED`), dan asumsi sementara.
 14. **[12-glosarium.md](file:///home/darbi/Projects/supervisi_sekolah/docs/12-glosarium.md)**
     Glosarium istilah domain dan akronim yang digunakan dalam sistem supervisi.
+15. **[13-alur-pendaftaran-dan-invitasi-user.md](file:///home/darbi/Projects/supervisi_sekolah/docs/13-alur-pendaftaran-dan-invitasi-user.md)**
+    Alur pendaftaran dan invitasi pengguna (closed onboarding, pembuatan sekolah prasyarat, email invitation Kepsek & Guru).
 
 ---
 
 ## 🔄 Dokumen Asal
 Dokumen-dokumen ini dipecah dan dirapikan dari dokumen mentah awal:
 - `SUPERVISI_APP_MASTER_CONTEXT.md` (Context Master awal dari komunikasi client).
+
