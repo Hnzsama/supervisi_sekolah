@@ -13,7 +13,7 @@ graph TD
     P -->|2. Invite via Email| KS["Kepala Sekolah<br/>(Single-Sekolah)"]
     KS -->|3. Invite via Email| G1["Guru 1"]
     KS -->|3. Invite via Email| G2["Guru 2"]
-    P -.->|3. Invite via Email (Bantuan Admin)| G3["Guru 3"]
+    P -.->|3. Invite via Email Bantuan Admin| G3["Guru 3"]
 
     style SYS fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff
     style P fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff
@@ -70,12 +70,12 @@ graph TD
 ```mermaid
 sequenceDiagram
     autonumber
-    actor P as Pengurus / Pengawas
-    actor KS as Kepala Sekolah
-    actor G as Guru
-    participant APP as Backend Aplikasi
-    participant MAIL as Service Email
-    participant DB as Database
+    actor P as "Pengurus / Pengawas"
+    actor KS as "Kepala Sekolah"
+    actor G as "Guru"
+    participant APP as "Backend Aplikasi"
+    participant MAIL as "Service Email"
+    participant DB as "Database"
 
     %% Step 1: Pengurus Buat Sekolah
     P->>APP: 1. Buat Sekolah Baru (NPSN, Nama Sekolah, Alamat)
@@ -86,7 +86,7 @@ sequenceDiagram
     P->>APP: 2. Invite Kepsek (Nama, Email Kepsek, school_id: S1)
     APP->>DB: Insert User (role: PRINCIPAL, school_id: S1, status: PENDING_INVITATION, token: T1)
     APP->>MAIL: Kirim Email Invitasi Kepsek + Link Token T1
-    MAIL-->>KS: Email: "Undangan Aktivasi Akun Kepala Sekolah"
+    MAIL-->>KS: Email: Undangan Aktivasi Akun Kepala Sekolah
     
     %% Step 3: Kepsek Aktivasi Akun
     KS->>APP: 3. Klik Link Aktivasi & Input Password Baru
@@ -97,7 +97,7 @@ sequenceDiagram
     KS->>APP: 4. Invite Guru (Nama, Email Guru, Mapel, NIP)
     APP->>DB: Insert User & Teacher Profile (role: TEACHER, school_id: S1, status: PENDING_INVITATION, token: T2)
     APP->>MAIL: Kirim Email Invitasi Guru + Link Token T2
-    MAIL-->>G: Email: "Undangan Aktivasi Akun Guru"
+    MAIL-->>G: Email: Undangan Aktivasi Akun Guru
 
     %% Step 5: Guru Aktivasi Akun
     G->>APP: 5. Klik Link Aktivasi & Input Password Baru
@@ -111,13 +111,14 @@ sequenceDiagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PENDING_INVITATION : User Di-input oleh Pengurus/Kepsek
-    PENDING_INVITATION --> ACTIVE : User Klik Link & Set Password (Token Valid)
-    PENDING_INVITATION --> EXPIRED : Masa Berlaku Token Habis (>72 Jam)
-    EXPIRED --> PENDING_INVITATION : Pengundang Klik "Resend Invitation"
-    ACTIVE --> SUSPENDED : Akun Dinonaktifkan (Pindah Tugas/Pensiun)
+    [*] --> PENDING_INVITATION : User Di-input oleh Pengurus atau Kepsek
+    PENDING_INVITATION --> ACTIVE : User Klik Link & Set Password Token Valid
+    PENDING_INVITATION --> EXPIRED : Masa Berlaku Token Habis Lebih Dari 72 Jam
+    EXPIRED --> PENDING_INVITATION : Pengundang Klik Resend Invitation
+    ACTIVE --> SUSPENDED : Akun Dinonaktifkan Pindah Tugas atau Pensiun
     SUSPENDED --> ACTIVE : Akun Diaktifkan Kembali oleh Admin
 ```
+
 
 ### Penjelasan Status:
 1. **`PENDING_INVITATION`**:

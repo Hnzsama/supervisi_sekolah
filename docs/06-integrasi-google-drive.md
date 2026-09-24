@@ -13,14 +13,14 @@ Sistem Supervisi Akademik Guru memberikan **fleksibilitas penuh** bagi Guru dala
 
 ```mermaid
 flowchart TD
-    G[Guru Menyusun Perangkat Pembelajaran] --> CHOICE{Pilih Metode Penyediaan}
-    CHOICE -->|Upload Langsung| UPLOAD[Upload File: DOCX, PDF, XLSX, PPTX, Images]
-    CHOICE -->|Google Drive| GDRIVE[Set Access: 'Anyone with the link can view'<br/>Paste Public Link]
+    G["Guru Menyusun Perangkat Pembelajaran"] --> CHOICE{"Pilih Metode Penyediaan"}
+    CHOICE -->|Upload Langsung| UPLOAD["Upload File: DOCX, PDF, XLSX, PPTX, Images"]
+    CHOICE -->|Google Drive| GDRIVE["Set Access: Anyone with link can view<br/>Paste Public Link"]
     
-    UPLOAD --> PARSER[Document Parser Engine & AI Analyzer]
+    UPLOAD --> PARSER["Document Parser Engine & AI Analyzer"]
     GDRIVE --> PARSER
     
-    PARSER --> REVIEW[Pengawas & Kepsek Preview Berkas<br/>& Verifikasi Rekomendasi AI]
+    PARSER --> REVIEW["Pengawas & Kepsek Preview Berkas<br/>& Verifikasi Rekomendasi AI"]
 ```
 
 ---
@@ -30,11 +30,11 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     autonumber
-    actor G as Guru
-    participant APP as Aplikasi Supervisi
-    participant PARSER as Document Parser
-    participant AI as Modul AI Engine
-    actor R as Reviewer (Pengawas/Kepsek)
+    actor G as "Guru"
+    participant APP as "Aplikasi Supervisi"
+    participant PARSER as "Document Parser"
+    participant AI as "Modul AI Engine"
+    actor R as "Reviewer (Pengawas/Kepsek)"
 
     alt Direct File Upload
         G->>APP: Unggah File (DOCX / PDF / XLSX / PPTX)
@@ -43,6 +43,7 @@ sequenceDiagram
         G->>APP: Paste URL Public GDrive
         APP->>APP: Validasi Format URL & Cek Akses Publik
     end
+
 
     APP->>PARSER: Ekstraksi Teks & Metadata Dokumen
     PARSER->>AI: Analisis Kelengkapan Komponen (RPP/Modul Ajar)

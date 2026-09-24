@@ -8,12 +8,12 @@ Tujuan utama aplikasi adalah mempermudah dan menstandarkan siklus supervisi guru
 
 ```mermaid
 flowchart TD
-    A[Perencanaan Pembelajaran & Manajemen Sekolah] --> B[Penyediaan & Upload Perangkat Pembelajaran<br/>(DOCX, PDF, Excel, PPTX, GDrive Link)]
-    B --> C[Verifikasi Manusia<br/>Human Cross-Check]
-    C --> D[Observasi / Pelaksanaan Pembelajaran di Kelas]
-    D --> E[Analisis Hasil & Catatan Observasi]
-    E --> F[Rekomendasi & Tindak Lanjut Berbasis AI]
-    F --> G[Laporan Akhir Supervisi<br/>Format PDF / Cetak]
+    A["Perencanaan Pembelajaran & Manajemen Sekolah"] --> B["Penyediaan & Upload Perangkat Pembelajaran<br/>(DOCX, PDF, Excel, PPTX, GDrive Link)"]
+    B --> C["Verifikasi Manusia<br/>Human Cross-Check"]
+    C --> D["Observasi / Pelaksanaan Pembelajaran di Kelas"]
+    D --> E["Analisis Hasil & Catatan Observasi"]
+    E --> F["Rekomendasi & Tindak Lanjut Berbasis AI"]
+    F --> G["Laporan Akhir Supervisi<br/>Format PDF / Cetak"]
 ```
 
 ---
@@ -48,11 +48,11 @@ Berikut adalah contoh skenario alur kerja dari awal sampai akhir:
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Pengawas as Pengurus / Pengawas
-    actor Kepsek as Kepala Sekolah
-    actor Guru
-    participant App as Aplikasi
-    participant AI Engine as AI
+    actor Pengawas as "Pengurus / Pengawas"
+    actor Kepsek as "Kepala Sekolah"
+    actor Guru as "Guru"
+    participant App as "Aplikasi"
+    participant AI Engine as "AI Engine"
 
     Pengawas->>App: Tambah Data Sekolah Dampingan Baru
     Pengawas->>App: Invite Kepala Sekolah via Email
@@ -67,6 +67,7 @@ sequenceDiagram
     Kepsek->>App: Finalisasi Tindak Lanjut
     App->>Pengawas: Download Laporan Supervisi (PDF)
 ```
+
 
 ---
 
