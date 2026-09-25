@@ -1,3 +1,4 @@
+
 # 05 — Domain Model & Data Schema Concepts
 
 ## 1. Skema Entitas Konseptual
@@ -12,6 +13,7 @@ erDiagram
     teachers ||--o{ supervisions : "undergoes"
     supervisions ||--o{ teacher_device_files : "has_devices"
     supervisions ||--o{ observation_sessions : "has_observations"
+    supervisions ||--o{ teacher_reflections : "has_reflections"
     supervisions ||--o{ follow_up_items : "has_followups"
     supervisions ||--o{ reports : "generates"
     observation_sessions ||--o{ observation_scores : "contains_scores"
@@ -39,16 +41,17 @@ erDiagram
 - **`teacher_device_files`**: `id`, `supervision_id`, `device_type_id`, `upload_type` (`DIRECT_UPLOAD`, `GDRIVE_LINK`), `file_path` (path internal storage), `file_format` (`pdf`, `docx`, `xlsx`, `pptx`, `png`, `gdrive_link`), `gdrive_public_url`, `file_name`, `file_size_bytes`, `ai_analysis_json`, `ai_recommendation_text`, `human_review_status` (`PENDING`, `APPROVED`, `REJECTED`, `CORRECTED`), `reviewer_notes`, `verified_by_user_id`, `verified_at`.
 
 
-### 2.3 Observasi & Scoring
+### 2.3 Observasi & Refleksi Guru
 - **`observation_instruments`**: `id`, `title`, `description`, `scale_min` (1), `scale_max` (3 atau 4), `is_active`.
 - **`observation_instrument_versions`**: `id`, `instrument_id`, `version_number`, `created_at`.
 - **`observation_indicators`**: `id`, `version_id`, `category` (misal: *Pembelajaran Mendalam*), `indicator_text`, `order_index`.
 - **`observation_sessions`**: `id`, `supervision_id`, `instrument_version_id`, `observer_user_id`, `observation_date`, `total_score`, `max_score`, `percentage`, `ai_summary_text`, `status`.
 - **`observation_scores`**: `id`, `session_id`, `indicator_id`, `score`, `notes`.
+- **`teacher_reflections`**: `id`, `supervision_id`, `teacher_id`, `strengths_text`, `challenges_text`, `improvement_areas_text`, `support_needed_text`, `status` (`DRAFT`, `SUBMITTED`), `submitted_at`.
 
 ### 2.4 AI & Tindak Lanjut
 - **`ai_logs`**: `id`, `supervision_id`, `prompt_context`, `ai_response_json`, `model_name`, `created_at`.
-- **`follow_up_items`**: `id`, `supervision_id`, `ai_suggested_action`, `final_action`, `assigned_to_user_id`, `deadline`, `status` (`DRAFT`, `APPROVED`, `IN_PROGRESS`, `COMPLETED`), `notes`.
+- **`follow_up_items`**: `id`, `supervision_id`, `ai_suggested_action`, `final_action`, `assigned_to_user_id`, `deadline`, `status` (`DRAFT`, `APPROVED`, `IN_PROGRESS`, `COMPLETED`), `notes` (mempertimbangkan hasil observasi & refleksi guru).
 - **`reports`**: `id`, `supervision_id`, `file_url`, `generated_at`, `generated_by_user_id`.
 - **`audit_logs`**: `id`, `user_id`, `action`, `resource_name`, `resource_id`, `payload_before`, `payload_after`, `created_at`.
 

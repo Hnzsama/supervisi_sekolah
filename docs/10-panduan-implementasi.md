@@ -12,14 +12,15 @@ flowchart LR
         P3 --> P4["4. User Profile & Role Setup"]
     end
 
-    subgraph PHASE2["Fase 2: Multi-Format Upload & Observasi"]
+    subgraph PHASE2["Fase 2: Upload, Observasi & Refleksi"]
         P5["5. Multi-Format Upload & GDrive Parser"] --> P6["6. Verifikasi Perangkat (HITL)"]
         P6 --> P7["7. Instrumen Observasi Fleksibel"]
         P7 --> P8["8. Sesi Observasi Kelas"]
+        P8 --> P8B["8b. Form Refleksi Diri Guru"]
     end
 
     subgraph PHASE3["Fase 3: AI & Reporting"]
-        P9["9. AI Synthesis & Recommendation"] --> P10["10. Action Tracker"]
+        P9["9. AI Synthesis & Recommendation<br/>(Input: Perangkat, Observasi & Refleksi)"] --> P10["10. Action Tracker"]
         P10 --> P11["11. Dashboard Multi-Role"]
         P11 --> P12["12. Export PDF Laporan"]
     end

@@ -60,9 +60,10 @@ Laporan supervisi merangkum seluruh perjalanan dari perencanaan hingga tindak la
 flowchart TD
     I["I. IDENTITAS GURU & SEKOLAH<br/>Nama Guru, NIP, Mapel, Sekolah, Observer"] --> II["II. PERENCANAAN & PERANGKAT PEMBELAJARAN<br/>Tabel Status Berkas & Catatan Verifikasi"]
     II --> III["III. OBSERVASI PELAKSANAAN PEMBELAJARAN<br/>Instrumen, Skor, Persentase (85,42%), Catatan"]
-    III --> IV["IV. SYNTHESIS ANALISIS & REKOMENDASI AI<br/>Ringkasan Kelebihan & Area Perbaikan"]
-    IV --> V["V. RENCANA TINDAK LANJUT SUPERVISI<br/>Action Plan, Target Waktu, Status"]
-    V --> VI["VI. LEMBAR PENGESAHAN & VERIFIKASI<br/>Tanda Tangan Guru, Kepsek, Pengawas"]
+    III --> IV["IV. LEMBAR REFLEKSI DIRI GURU<br/>Hal Baik, Kendala, Area Perbaikan & Support Needed"]
+    IV --> V["V. SYNTHESIS ANALISIS & REKOMENDASI AI<br/>Sintesis Observasi & Refleksi Guru"]
+    V --> VI["VI. RENCANA TINDAK LANJUT SUPERVISI<br/>Action Plan, Target Waktu, Status"]
+    VI --> VII["VII. LEMBAR PENGESAHAN & VERIFIKASI<br/>Tanda Tangan Guru, Kepsek, Pengawas"]
 ```
 
 ### 2.2 Format Output & Unduh

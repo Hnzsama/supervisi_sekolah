@@ -27,16 +27,17 @@
 | `Q-AI-02` | Privacy Data | Apakah seluruh isi dokumen guru diizinkan dikirim ke Cloud AI? | Dilakukan filtering PII sebelum dikirim ke API AI. | `OPEN` |
 
 ### 1.4 Observasi & Instrumen
-| ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan | Status |
+| ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan / Keputusan | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | `Q-OBS-01` | Pembelajaran Mendalam | Apakah indikator *Pembelajaran Mendalam* memiliki standar resmi dinas? | Disediakan template dasar yang dapat disunting (configurable). | `OPEN` |
 | `Q-OBS-02` | Bobot Indikator | Apakah setiap indikator memilik bobot yang berbeda dalam skor akhir? | Semua indikator memiliki bobot sama (skala 1–4 sederhana). | `OPEN` |
 | `Q-OBS-03` | Predikat Nilai | Bagaimana rentang persentase untuk predikat (Sangat Baik, Baik, Cukup)? | Dikonfigurasi dalam tabel threshold (misal >85% Sangat Baik). | `OPEN` |
+| `Q-OBS-04` | Refleksi Guru | Apakah ada tahap refleksi guru pasca-observasi kelas? | Wajib ditambahkan tahap Refleksi Guru setelah observasi kelas, dan dijadikan salah satu bahan pertimbangan utama dalam kegiatan tindak lanjut. | `RESOLVED` |
 
 ### 1.5 Tindak Lanjut & Laporan
 | ID | Topik | Pertanyaan Terbuka | Asumsi Sementara yang Digunakan | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| `Q-REP-01` | Format Laporan | Apakah format laporan harus 100% persis dengan template dinas tertentu? | Mengikuti struktur standar 6 bagian laporan supervisi. | `OPEN` |
+| `Q-REP-01` | Format Laporan | Apakah format laporan harus 100% persis dengan template dinas tertentu? | Mengikuti struktur standar 7 bagian laporan supervisi (termasuk lembar refleksi guru). | `OPEN` |
 | `Q-REP-02` | Digital Signature | Apakah laporan memerlukan tanda tangan digital (QR Code / E-Meterai)? | Menyiapkan area tanda tangan visual/konvensional. | `OPEN` |
 
 ---
@@ -51,5 +52,6 @@ Setiap kali ada keputusan baru dari client/pengguna, catat pada bagian ini:
 2026-09-24 — Q-ACC-01 — User Onboarding dilakukan via Email Invitation. Pengurus wajib membuat data Sekolah terlebih dahulu sebagai wadah, lalu mengundang Kepsek via email invitation. Kepsek/Pengurus mengundang Guru via email. — User / Client Requirement
 2026-09-24 — Q-ACC-03 — Pembuatan Sekolah adalah PRASYARAT MUTLAK sebelum pendaftaran Kepsek dan Guru. — User / Client Requirement
 2026-09-24 — Q-GDR-03 — Guru dapat mengunggah berkas dalam FORMAT APA PUN (DOCX, PDF, XLSX, PPTX, Scan/Gambar, dll.) maupun Public Link GDrive. — User / Client Requirement
+2026-09-26 — Q-OBS-04 — Ditambahkan TAHAP REFLEKSI GURU setelah kegiatan observasi kelas. Data refleksi diri ini menjadi salah satu bahan pertimbangan utama untuk menyusun rekomendasi dan kegiatan tindak lanjut supervisi. — User / Client Requirement
 ```
 

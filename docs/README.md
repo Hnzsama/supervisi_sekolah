@@ -25,7 +25,7 @@ Selamat datang di pusat dokumentasi **Sistem Supervisi Guru Berbasis AI**. Folde
 9. **[07-sistem-ai-dan-verifikasi.md](file:///home/darbi/Projects/supervisi_sekolah/docs/07-sistem-ai-dan-verifikasi.md)**
    Peran AI, prinsip Human-in-the-Loop, alur analisis perangkat & observasi, serta rekomendasi tindak lanjut.
 10. **[08-sistem-observasi-kelas.md](file:///home/darbi/Projects/supervisi_sekolah/docs/08-sistem-observasi-kelas.md)**
-    Sistem observasi kelas, manajemen instrumen fleksibel, skala penilaian, dan formulasi akumulasi skor.
+    Sistem observasi kelas, manajemen instrumen fleksibel, skala penilaian, formulasi akumulasi skor, dan tahap refleksi diri guru pasca-observasi.
 11. **[09-dashboard-dan-laporan.md](file:///home/darbi/Projects/supervisi_sekolah/docs/09-dashboard-dan-laporan.md)**
     Desain dashboard multi-role (Pengawas & Kepsek) dan spesifikasi laporan akhir.
 12. **[10-panduan-implementasi.md](file:///home/darbi/Projects/supervisi_sekolah/docs/10-panduan-implementasi.md)**

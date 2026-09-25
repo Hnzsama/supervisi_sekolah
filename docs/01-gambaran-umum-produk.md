@@ -11,9 +11,10 @@ flowchart TD
     A["Perencanaan Pembelajaran & Manajemen Sekolah"] --> B["Penyediaan & Upload Perangkat Pembelajaran<br/>(DOCX, PDF, Excel, PPTX, GDrive Link)"]
     B --> C["Verifikasi Manusia<br/>Human Cross-Check"]
     C --> D["Observasi / Pelaksanaan Pembelajaran di Kelas"]
-    D --> E["Analisis Hasil & Catatan Observasi"]
-    E --> F["Rekomendasi & Tindak Lanjut Berbasis AI"]
-    F --> G["Laporan Akhir Supervisi<br/>Format PDF / Cetak"]
+    D --> E["Refleksi Diri Guru Pasca-Observasi"]
+    E --> F["Analisis Hasil, Catatan Observasi & Refleksi Guru"]
+    F --> G["Rekomendasi & Tindak Lanjut Berbasis AI"]
+    G --> H["Laporan Akhir Supervisi<br/>Format PDF / Cetak"]
 ```
 
 ---
@@ -22,8 +23,8 @@ flowchart TD
 
 Aplikasi memanfaatkan **Artificial Intelligence (AI)** sebagai asisten untuk:
 1. Menganalisis kelengkapan dan kualitas perangkat pembelajaran yang diunggah dalam berbagai format berkas (DOCX, PDF, XLSX, PPTX, scan/gambar) maupun tautan Google Drive.
-2. Membaca dan mensintesis hasil observasi kelas bersama catatan dari observer.
-3. Memberikan rekomendasi program tindak lanjut bagi guru.
+2. Membaca dan mensintesis hasil observasi kelas bersama catatan dari observer serta lembar refleksi diri guru.
+3. Memberikan rekomendasi program tindak lanjut bagi guru yang mempertimbangkan hasil observasi dan refleksi guru.
 
 > **Prinsip Utama AI:** AI **BUKAN** pengambil keputusan akhir. Seluruh hasil rekomendasi dan analisis AI harus dapat dilihat, dikroscek, dikoreksi, disetujui, atau ditolak secara manual oleh Pengawas atau Kepala Sekolah.
 
@@ -36,6 +37,7 @@ Berdasarkan komunikasi awal dengan client:
 - Pengguna aplikasi terdiri dari 3 role: **Pengawas (Pengurus)**, **Kepala Sekolah**, dan **Guru**.
 - **Alur Pendaftaran User:** Pengurus wajib mendaftarkan/membuat data Sekolah terlebih dahulu sebagai wadah. Setelah itu Pengurus mengundang Kepala Sekolah via Email Invitation, dan Kepala Sekolah (atau Pengurus) mengundang Guru-Guru via Email Invitation.
 - **Fleksibilitas Upload Berkas:** Guru dapat mengunggah berkas perangkat pembelajaran dalam **berbagai format (DOCX, PDF, XLSX/Excel, PPTX/PPT, Gambar, dll.)** maupun menautkan Google Drive Public Link.
+- **Tahap Refleksi Guru Pasca-Observasi:** Setelah observasi kelas dilakukan, Guru mengisikan refleksi diri sebagai bahan pertimbangan utama dalam penyusunan kegiatan tindak lanjut.
 - Pengawas memegang tanggung jawab atas **beberapa sekolah**.
 - Kepala Sekolah berfokus pada **sekolah yang dipimpinnya sendiri**.
 
@@ -63,8 +65,9 @@ sequenceDiagram
     AI Engine->>App: Analisis Kelengkapan Komponen Perangkat
     Kepsek->>App: Review & Verifikasi Perangkat Guru
     Kepsek->>App: Isi Observasi & Scoring Kelas
-    AI Engine->>App: Generate Draf Rekomendasi Tindak Lanjut
-    Kepsek->>App: Finalisasi Tindak Lanjut
+    Guru->>App: Isi Lembar Refleksi Pasca-Observasi
+    AI Engine->>App: Generate Draf Rekomendasi Tindak Lanjut (Input: Observasi + Refleksi)
+    Kepsek->>App: Review Refleksi & Finalisasi Tindak Lanjut
     App->>Pengawas: Download Laporan Supervisi (PDF)
 ```
 
@@ -76,5 +79,7 @@ sequenceDiagram
 - **User Onboarding & School Management:** Manajemen hirarki pengguna berbasis invitasi email dan pembuatan master data sekolah terlebih dahulu.
 - **Multi-Format Document Upload & GDrive Link:** Fleksibilitas penyediaan berkas perangkat pembelajaran dalam format DOCX, PDF, XLSX, PPTX, image, maupun tautan Google Drive.
 - **Supervision / Observation Management:** Pengelolaan instrumen fleksibel, pengisian observasi kelas, dan kalkulasi skor otomatis.
-- **AI-Assisted Follow-up & Reporting:** Rekomendasi tindak lanjut berbantuan AI serta pembuatan laporan supervisi terpadu.
+- **Teacher Self-Reflection Stage:** Form refleksi diri guru pasca-observasi kelas sebagai pertimbangan tindak lanjut.
+- **AI-Assisted Follow-up & Reporting:** Rekomendasi tindak lanjut berbantuan AI (mensintesis observasi & refleksi) serta pembuatan laporan supervisi terpadu.
+
 

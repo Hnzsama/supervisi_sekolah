@@ -9,7 +9,8 @@ flowchart TD
     subgraph INPUTS["Input Data"]
         UPL["Direct Upload Files (DOCX, PDF, Excel, PPT)"]
         GDF["GDrive Public Links"]
-        OBS["Hasil Observasi & Catatan"]
+        OBS["Hasil Observasi & Catatan Class"]
+        REF["Refleksi Diri Guru Pasca-Observasi"]
     end
 
     subgraph AI_MODULES["Modul AI"]
@@ -24,6 +25,7 @@ flowchart TD
     UPL --> AID
     GDF --> AID
     OBS --> AIS
+    REF --> AIS
     AID --> REV
     AIS --> REV
     REV --> FIN["Keputusan & Laporan Final"]
@@ -43,12 +45,13 @@ flowchart TD
   - Catatan draf kualitas dan komponen yang kurang lengkap.
 
 ### 2.2 AI Synthesizer & Rekomendasi Tindak Lanjut
-- **Input:**
-  - Hasil verifikasi perangkat pembelajaran.
-  - Hasil observasi kelas (skor per indikator & catatan observer).
+- **Input Tri-Partit:**
+  1. Hasil verifikasi perangkat pembelajaran.
+  2. Hasil observasi kelas (skor per indikator & catatan observer).
+  3. Lembar refleksi diri guru pasca-observasi (kekuatan, kendala, area perbaikan, dan dukungan yang diharapkan).
 - **Output AI:**
-  - Ringkasan kekuatan dan area yang perlu ditingkatkan dari guru.
-  - Rekomendasi bentuk tindak lanjut (misal: "Penguatan penyusunan instrumen asesmen formatif", "Pelatihan strategi pembelajaran aktif").
+  - Ringkasan komprehensif membandingkan/mensintesis temuan observer dengan persepsi reflektif guru.
+  - Rekomendasi bentuk program tindak lanjut yang konstruktif dan solutif (misal: "Penguatan penyusunan instrumen asesmen formatif", "Coaching teman sejawat untuk manajemen kelas aktif").
 
 ---
 

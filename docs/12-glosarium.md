@@ -13,6 +13,7 @@ Berikut adalah definisi istilah dan akronim yang digunakan dalam sistem supervis
 | **Perangkat Pembelajaran** | Dokumen perencanaan dan persiapan mengajar guru (RPP, Modul Ajar, Bahan Ajar, LKPD, Instrumen Asesmen, Media Pembelajaran, Prota/Promes). |
 | **Public Drive Link** | Tautan Google Drive berakses *Anyone with the link can view* yang ditaruh/ditempelkan oleh Guru ke aplikasi tanpa perlu login OAuth. |
 | **Observasi Kelas** | Kegiatan pengamatan langsung proses pembelajaran mengajar guru di dalam kelas oleh Pengawas atau Kepala Sekolah. |
+| **Refleksi Diri Guru** | Proses evaluasi mandiri oleh guru setelah observasi kelas untuk mencatat kekuatan, kendala, area perbaikan, dan kebutuhan dukungan sebagai bahan masukan tindak lanjut. |
 | **Instrumen Observasi** | Daftar indikator dan rubrik kriteria yang digunakan untuk mengukur efektivitas pengajaran saat observasi kelas. |
 | **Pembelajaran Mendalam** | (*Deep Learning Approach*) Pendekatan pembelajaran yang menekankan pemahaman konseptual, penalaran kritis, dan keterlibatan aktif siswa. |
 | **Human-in-the-Loop (HITL)** | Prinsip perancangan sistem di mana modul AI hanya memberikan draf/rekomendasi, dan keputusan akhir wajib dikroscek serta disetujui oleh manusia (Pengawas/Kepsek). |

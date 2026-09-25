@@ -2,22 +2,24 @@
 
 ## 1. Alur Bisnis Utuh Supervisi Guru
 
-Siklus supervisi guru terdiri dari 6 tahapan utama yang terintegrasi secara runtut:
+Siklus supervisi guru terdiri dari 7 tahapan utama yang terintegrasi secara runtut:
 
 ```mermaid
 flowchart LR
     T1["1. Onboarding & Sekolah"] --> T2["2. Upload Perangkat"]
     T2 --> T3["3. Analisis & Verifikasi"]
     T3 --> T4["4. Observasi Kelas"]
-    T4 --> T5["5. Tindak Lanjut"]
-    T5 --> T6["6. Laporan Akhir"]
+    T4 --> T5["5. Refleksi Guru"]
+    T5 --> T6["6. Tindak Lanjut"]
+    T6 --> T7["7. Laporan Akhir"]
 
     style T1 fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#fff
     style T2 fill:#1e293b,stroke:#818cf8,stroke-width:1.5px,color:#fff
     style T3 fill:#1e293b,stroke:#c084fc,stroke-width:1.5px,color:#fff
     style T4 fill:#1e293b,stroke:#34d399,stroke-width:1.5px,color:#fff
-    style T5 fill:#1e293b,stroke:#f43f5e,stroke-width:1.5px,color:#fff
-    style T6 fill:#1e293b,stroke:#fbbf24,stroke-width:1.5px,color:#fff
+    style T5 fill:#1e293b,stroke:#a7f3d0,stroke-width:1.5px,color:#065f46
+    style T6 fill:#1e293b,stroke:#f43f5e,stroke-width:1.5px,color:#fff
+    style T7 fill:#1e293b,stroke:#fbbf24,stroke-width:1.5px,color:#fff
 ```
 
 ---
@@ -53,16 +55,26 @@ flowchart LR
 3. **Observer** mengisi skor (skala 1–3 atau 1–4) dan catatan kualitatif untuk setiap indikator pada formulir observasi.
 4. **Sistem** menghitung total nilai perolehan, nilai maksimal, dan persentase akhir observasi secara aktual.
 
-### Tahap 5: Analisis AI Rekomendasi & Penetapan Tindak Lanjut
-1. **AI System** membaca input gabungan dari:
+### Tahap 5: Refleksi Diri Guru Pasca-Observasi Kelas
+1. **Guru** mengakses formulir refleksi diri supervisi pasca-observasi kelas di aplikasi.
+2. **Guru** mengisikan poin-poin reflektif meliputi:
+   - Hal-hal positif / kekuatan yang sudah berjalan baik saat mengajar di kelas.
+   - Kendala atau kesulitan yang dihadapi guru selama proses pembelajaran.
+   - Aspek keterampilan mengajar yang ingin ditingkatkan/diperbaiki.
+   - Bentuk bantuan atau program pelatihan yang diharapkan guru.
+3. **Sistem** menyimpan data refleksi guru sebagai salah satu bahan pertimbangan utama dalam analisis tindak lanjut.
+
+### Tahap 6: Analisis AI Rekomendasi & Penetapan Tindak Lanjut
+1. **AI System** membaca input tri-partit gabungan dari:
    - Hasil verifikasi perangkat pembelajaran (Tahap 3).
    - Hasil skor dan catatan per indikator observasi (Tahap 4).
-2. **AI System** menyusun draf ringkasan kelebihan, area perbaikan, dan rekomendasi program tindak lanjut.
-3. **Observer (Pengawas / Kepsek)** meninjau rekomendasi AI, mengedit deskripsi tindakan, menentukan penanggung jawab, target waktu (deadline), dan menyetujui program tindak lanjut.
+   - Input refleksi diri guru pasca-observasi kelas (Tahap 5).
+2. **AI System** menyusun draf ringkasan kelebihan, area perbaikan, serta rekomendasi program tindak lanjut yang selaras dengan temuan observer dan kebutuhan reflektif guru.
+3. **Observer (Pengawas / Kepsek)** bersama Guru meninjau rekomendasi AI, mengedit deskripsi tindakan, menentukan penanggung jawab, target waktu (deadline), dan menyetujui program tindak lanjut.
 4. **Item Tindak Lanjut** disimpan dengan status `Disetujui` / `Dalam Proses`.
 
-### Tahap 6: Penyusunan & Unduh Laporan Akhir Supervisi
-1. **Sistem** merangkum seluruh data dari Tahap 1 sampai Tahap 5 ke dalam satu berkas Laporan Supervisi Guru.
+### Tahap 7: Penyusunan & Unduh Laporan Akhir Supervisi
+1. **Sistem** merangkum seluruh data dari Tahap 1 sampai Tahap 6 ke dalam satu berkas Laporan Supervisi Guru.
 2. **Pengawas / Kepala Sekolah** memeriksa draf laporan.
 3. **Laporan** difinalisasi dan dapat diunduh dalam format resmi (misal PDF) untuk dokumentasi sekolah dan dinas.
 
@@ -77,7 +89,8 @@ flowchart LR
     DEVICE_LINKED --> AI_ANALYZED["AI_ANALYZED"]
     AI_ANALYZED --> DEVICE_VERIFIED["DEVICE_VERIFIED"]
     DEVICE_VERIFIED --> OBSERVED["OBSERVED"]
-    OBSERVED --> FOLLOWUP_ACTIVE["FOLLOWUP_ACTIVE"]
+    OBSERVED --> REFLECTED["REFLECTED"]
+    REFLECTED --> FOLLOWUP_ACTIVE["FOLLOWUP_ACTIVE"]
     FOLLOWUP_ACTIVE --> REPORTED["REPORTED"]
 ```
 

@@ -10,6 +10,7 @@ graph TD
     M --> M1[Modul Sekolah & Email Invitation]
     M --> M2[Modul Multi-Format Device Upload & Link]
     M --> M3[Modul Observasi Kelas]
+    M --> M3B[Modul Refleksi Diri Guru]
     M --> M4[Modul AI System & HITL]
     M --> M5[Modul Action Plan & Tindak Lanjut]
     M --> M6[Modul Laporan & Dashboard]
@@ -18,6 +19,7 @@ graph TD
     style M1 fill:#0f172a,stroke:#818cf8,color:#fff
     style M2 fill:#0f172a,stroke:#38bdf8,color:#fff
     style M3 fill:#0f172a,stroke:#c084fc,color:#fff
+    style M3B fill:#0f172a,stroke:#a7f3d0,color:#fff
     style M4 fill:#0f172a,stroke:#f43f5e,color:#fff
     style M5 fill:#0f172a,stroke:#34d399,color:#fff
     style M6 fill:#0f172a,stroke:#fbbf24,color:#fff
@@ -55,21 +57,28 @@ graph TD
   - *Catatan Kualitatif per Indikator:* Input catatan lapangan untuk setiap butir penilaian.
   - *Kalkulasi Skor Otomatis:* Perhitungan instan total skor perolehan dan persentase ketercapaian.
 
-### 2.4 Modul AI System & Human Verification
+### 2.4 Modul Refleksi Diri Guru Pasca-Observasi (Teacher Self-Reflection)
+- **Fungsi:** Memfasilitasi Guru untuk menginput masukan reflektif diri setelah kegiatan observasi kelas selesai dilaksanakan.
+- **Fitur Utama:**
+  - *Formulir Refleksi Terstruktur:* Input kekuatan/hal positif mengajar, kendala lapangan, area pengembangan diri, dan kebutuhan bantuan/pelatihan.
+  - *Integrasi Pertimbangan Tindak Lanjut:* Menyediakan data refleksi sebagai variabel bahan masukan bagi AI Follow-up Generator dan Pengawas/Kepsek.
+  - *Status Refleksi:* Memantau status pengisian refleksi guru (`Draft`, `Submitted`).
+
+### 2.5 Modul AI System & Human Verification
 - **Fungsi:** Membantu analisis otomatis dari berkas yang diunggah dan memberikan draf rekomendasi.
 - **Fitur Utama:**
   - *AI Multi-Format Device Analyzer:* Menganalisis kelengkapan komponen perangkat dari file DOCX, PDF, Excel, PPT, maupun GDrive Link.
-  - *AI Observation Synthesizer:* Menganalisis pola kelebihan dan area perbaikan dari hasil observasi.
-  - *AI Follow-up Generator:* Menghasilkan draf aksi tindak lanjut.
+  - *AI Tri-Factor Synthesizer:* Menganalisis pola kelebihan dan area perbaikan dengan memadukan data perangkat, skor & catatan observasi, serta refleksi diri guru.
+  - *AI Follow-up Generator:* Menghasilkan draf aksi tindak lanjut yang berpusat pada perbaikan nyata dan aspirasi reflektif guru.
   - *Human Verification Interface:* Antarmuka bagi Pengawas/Kepsek untuk menerima, mengedit, atau menolak masukan AI.
 
-### 2.5 Modul Tindak Lanjut Supervisi (Follow-Up Management)
+### 2.6 Modul Tindak Lanjut Supervisi (Follow-Up Management)
 - **Fungsi:** Memantau pelaksanaan rekomendasi pasca-supervisi.
 - **Fitur Utama:**
-  - *Action Plan Builder:* Menyusun daftar item tindakan, penanggung jawab, dan tenggat waktu.
+  - *Action Plan Builder:* Menyusun daftar item tindakan, penanggung jawab, dan tenggat waktu berdasarkan sintesis observasi dan refleksi guru.
   - *Status Tracker:* Memantau progres (`Draft`, `Approved`, `In Progress`, `Completed`).
 
-### 2.6 Modul Dashboard & Reporting
+### 2.7 Modul Dashboard & Reporting
 - **Fungsi:** Menyajikan statistik agregat dan dokumen cetak akhir.
 - **Fitur Utama:**
   - *Dashboard Pengawas:* Overview lintas sekolah dampingan.

@@ -33,6 +33,7 @@ graph TD
   - Melakukan cross-check dan verifikasi terhadap hasil analisis AI.
   - Mengelola dan membuat instrumen observasi pembelajaran.
   - Melaksanakan observasi kelas, mengisi penilaian, dan memberikan catatan.
+  - Membaca refleksi diri guru pasca-observasi sebagai pertimbangan tindak lanjut.
   - Mengulas, menyunting, dan menyetujui rekomendasi tindak lanjut AI.
   - Melihat dan mengunduh laporan supervisi individual maupun rekapitulasi sekolah.
 
@@ -48,6 +49,7 @@ graph TD
   - Melakukan cross-check manual terhadap hasil rekomendasi AI.
   - Menyesuaikan/membuat instrumen observasi.
   - Melakukan observasi kelas, memberi nilai, dan memberikan catatan per indikator.
+  - Membaca dan meninjau refleksi diri guru pasca-observasi.
   - Mengelola dan menetapkan rencana tindak lanjut supervisi guru.
   - Mengunduh laporan supervisi untuk guru di sekolahnya.
 
@@ -61,6 +63,7 @@ graph TD
   - **Input Public Link Google Drive:** Menautkan folder/berkas Google Drive publik sebagai opsi alternatif.
   - Melihat hasil verifikasi perangkat pembelajaran dari Pengawas/Kepsek.
   - Melihat jadwal dan hasil observasi pembelajaran.
+  - **Mengisi Refleksi Diri Pasca-Observasi:** Memberikan masukan reflektif (kekuatan, kendala, area perbaikan, dan bantuan yang dibutuhkan) setelah observasi kelas selesai.
   - Melihat rekomendasi dan program tindak lanjut yang telah disetujui.
 
 ---
@@ -81,6 +84,8 @@ graph TD
 | **Kelola Instrumen Observasi** | ✅ | ✅ | ❌ |
 | **Isi Observasi & Skor Kelas** | ✅ | ✅ | ❌ |
 | **Isi Catatan per Indikator** | ✅ | ✅ | ❌ |
+| **Isi Refleksi Diri Pasca-Observasi** | ❌ | ❌ | ✅ (Milik sendiri) |
+| **Lihat Refleksi Guru** | ✅ (Sekolah Dampingan) | ✅ (Sekolah Sendiri) | ✅ (Milik sendiri) |
 | **Verifikasi Rekomendasi AI** | ✅ | ✅ | ❌ |
 | **Kelola Item Tindak Lanjut** | ✅ | ✅ | 👁️ (Read Only) |
 | **Cetak / Download Laporan** | ✅ | ✅ | 👁️ (Lihat Laporan Sendiri) |

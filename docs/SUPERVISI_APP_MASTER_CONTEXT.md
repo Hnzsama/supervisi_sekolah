@@ -744,58 +744,70 @@ Jangan mendesain sistem dengan asumsi satu guru hanya bisa memiliki satu hasil o
 
 ---
 
-# 21. AI Setelah Observasi
+# 21. Refleksi Diri Guru Pasca-Observasi Kelas
 
-Setelah observasi selesai, AI dapat membantu menganalisis hasil.
+Setelah kegiatan observasi kelas dilaksanakan oleh observer (Pengawas/Kepsek), Guru melakukan pengisian **Refleksi Diri Pasca-Observasi**.
 
-Input AI dapat berasal dari:
+Refleksi ini mencakup:
+- Kelebihan / hal positif yang dirasakan guru saat mengajar.
+- Kendala atau hambatan yang dihadapi di kelas.
+- Aspek pembelajaran yang ingin ditingkatkan oleh guru.
+- Bentuk dukungan atau pelatihan yang diharapkan dari sekolah/pengawas.
+
+Data refleksi diri guru ini menjadi **salah satu bahan pertimbangan utama** bagi kegiatan tindak lanjut.
+
+---
+
+# 22. AI Setelah Observasi & Refleksi Guru
+
+Setelah observasi dan refleksi guru selesai, AI membantu menganalisis hasil secara menyeluruh.
+
+Input AI berasal dari (Tri-Partit Input):
 
 ```text
-Hasil perangkat pembelajaran
+Hasil perangkat pembelajaran (Fitur 1)
 +
-Hasil observasi
+Hasil observasi & catatan observer (Fitur 2)
 +
-Nilai setiap indikator
-+
-Catatan observer
+Refleksi diri guru pasca-observasi (Fitur 2b)
 ```
 
 AI dapat menghasilkan:
 
 ```text
-Ringkasan
-Area yang sudah baik
-Area yang perlu perhatian
-Rekomendasi
+Ringkasan Sintesis
+Area yang sudah baik (Perspektif Observer & Guru)
+Area yang perlu perhatian / pengembangan
+Rekomendasi Program Tindak Lanjut
 ```
 
 Contoh konseptual:
 
 ```text
-Hasil observasi menunjukkan aspek A
-memerlukan perhatian.
+Hasil observasi & refleksi guru menunjukkan aspek A
+memerlukan perhatian dan dukungan pelatihan.
 
 Rekomendasi:
 - memperkuat aspek A,
-- melakukan strategi B,
-- mengevaluasi aspek C.
+- memberikan fasilitas pelatihan strategi B,
+- melakukan evaluasi berkala.
 ```
 
 Sekali lagi, hasil tersebut adalah **rekomendasi AI**, bukan keputusan final.
 
 ---
 
-# 22. Tindak Lanjut
+# 23. Tindak Lanjut
 
-Tahap ketiga setelah observasi adalah tindak lanjut.
+Tahap pasca-observasi dan refleksi guru adalah penetapan tindak lanjut.
 
 Client mengatakan:
 
-> "untuk tindak lanjut, direkomendasikan oleh AI, setelah observasi, dari AI, berdasarkan dari fitur 1 dan 2 tadi"
+> "untuk tindak lanjut, direkomendasikan oleh AI, setelah observasi, dari AI, berdasarkan dari fitur 1 dan 2 tadi, serta refleksi guru pasca-observasi"
 
 Pemahaman:
 
-AI menggunakan data dari tahap sebelumnya.
+AI menggunakan data dari seluruh tahap sebelumnya:
 
 ```text
 Fitur/hasil 1:
@@ -805,6 +817,11 @@ Perangkat Pembelajaran
 
 Fitur/hasil 2:
 Observasi Pembelajaran
+
++
+
+Fitur/hasil 2b:
+Refleksi Diri Guru Pasca-Observasi
 
 ↓
 

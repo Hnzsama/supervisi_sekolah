@@ -82,3 +82,21 @@ Satu guru dapat memiliki **banyak riwayat observasi** dalam satu tahun ajaran (m
 - Detail skor dan catatan per indikator.
 - Total skor, nilai maksimal, dan persentase akhir.
 - Catatan umum observer.
+
+---
+
+## 5. Tahap Refleksi Diri Guru Pasca-Observasi Kelas
+
+### 5.1 Definisi & Tujuan
+Setelah kegiatan observasi kelas diisi oleh observer (Pengawas/Kepsek), Guru melakukan **Refleksi Diri Pasca-Observasi**. Refleksi ini bertujuan agar penilaian supervisi tidak bersifat satu arah (top-down), melainkan menjadi ruang dialog emansipatif untuk perbaikan pembelajaran.
+
+### 5.2 Komponen Form Refleksi Guru:
+1. **Hal Baik / Kekuatan:** Catatan guru mengenai aspek pengajaran yang telah berhasil dilaksanakan dengan baik di kelas.
+2. **Tantangan / Kendala:** Kesulitan atau hambatan yang ditemui guru selama mengajar (misal: pengelolaan waktu, dinamika siswa, sarana).
+3. **Area Pengembangan:** Aspek kompetensi atau metode mengajar yang ingin ditingkatkan oleh guru secara mandiri.
+4. **Kebutuhan Dukungan:** Bentuk bantuan, fasilitas, atau pelatihan yang diharapkan guru dari Kepala Sekolah/Pengawas.
+
+### 5.3 Peran Refleksi dalam Kegiatan Tindak Lanjut
+- Data refleksi diri guru **disandingkan secara otomatis dengan skor & catatan observer** dalam modul analisis.
+- AI Synthesizer membaca data refleksi ini sebagai variabel masukan utama guna menyusun draf **Rencana Tindak Lanjut Supervisi**.
+- Pengawas dan Kepala Sekolah mempertimbangkan aspirasi serta kebutuhan dukungan guru saat mengesahkan program tindak lanjut akhir.
